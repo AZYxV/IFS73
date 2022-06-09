@@ -18,10 +18,13 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 </style>
