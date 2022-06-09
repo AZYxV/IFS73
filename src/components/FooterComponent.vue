@@ -5,19 +5,19 @@
             <div>
                 <h2>Liens</h2>
                 <ul>
-                    <li><router-link to="/">Accueil</router-link></li>
-                    <li><router-link to="/formations">Formations</router-link></li>
-                    <li><router-link to="/contact">Contact</router-link></li>
-                    <li><router-link to="/about">A propos</router-link></li>
+                    <li><router-link class="router" to="/">Accueil</router-link></li>
+                    <li><router-link class="router" to="/formations">Formations</router-link></li>
+                    <li><router-link class="router" to="/contact">Contact</router-link></li>
+                    <li><router-link class="router" to="/about">A propos</router-link></li>
                 </ul>
             </div>
             <div>
                 <h2>Informations</h2>
                 <ul>
-                    <li><router-link to="/">Accueil</router-link></li>
-                    <li><router-link to="/formations">Formations</router-link></li>
-                    <li><router-link to="/contact">Contact</router-link></li>
-                    <li><router-link to="/about">A propos</router-link></li>
+                    <li><router-link class="router" to="/">Accueil</router-link></li>
+                    <li><router-link class="router" to="/formations">Formations</router-link></li>
+                    <li><router-link class="router" to="/contact">Contact</router-link></li>
+                    <li><router-link class="router" to="/about">A propos</router-link></li>
                 </ul>
             </div>
         </section>
@@ -41,8 +41,7 @@
         text-decoration: none;
     }
 
-    li.router-link{
+    .router{
         text-decoration: none;
-        color: black;
     }
 </style>
