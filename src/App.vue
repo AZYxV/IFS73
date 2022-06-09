@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Righteous&display=swap');
 
 *{
   margin: 0;
@@ -31,5 +31,9 @@ export default {
 main{
   background: rgb(255,241,235);
   background: linear-gradient(0deg, rgba(255,241,235,1) 20%, rgba(255,255,255,1) 100%);
+}
+
+h1{
+  font-family: 'Righteous', cursive;
 }
 </style>
