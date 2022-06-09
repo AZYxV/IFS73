@@ -27,4 +27,9 @@ export default {
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
+
+main{
+  background: rgb(255,241,235);
+  background: linear-gradient(0deg, rgba(255,241,235,1) 20%, rgba(255,255,255,1) 100%);
+}
 </style>

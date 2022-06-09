@@ -1,5 +1,7 @@
 <template>
-    <h1>Accueil</h1>
+    <main>
+        <h1>Accueil</h1>
+    </main>
 </template>
 
 <style scoped>

@@ -1,5 +1,7 @@
 <template>
-    <h1>Formations</h1>
+    <main>
+        <h1>Formations</h1>
+    </main>
 </template>
 
 <style scoped>
