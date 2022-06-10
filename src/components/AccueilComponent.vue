@@ -1,8 +1,9 @@
 <template>
     <main>
-        <!-- slider -->
-        <h1>Formations bureautiques sur mesure</h1>
-        <p>Aix-les-Bains • Chambéry • Annecy • Savoie • Haute-Savoie • Isère</p>
+        <div class="title">
+            <h1>Formations bureautiques sur mesure</h1>
+            <p>Aix-les-Bains • Chambéry • Annecy • Savoie • Haute-Savoie • Isère</p>
+        </div>
         <section class="valeurs">
             <div>
                 <img src="@/assets/accueil/map.svg" alt="logo carte">
@@ -29,32 +30,50 @@
             <img src="@/assets/accueil/illustationun.png" alt="Illustration femme présentation">
         </section>
         <section class="paragraphe">
-            <img src="@/assets/accueil/illustationdeux.png" alt="Illustration homme présentation">
-            <div class="right">
-                <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit.</h3>
-                <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ipsum dolor sit amet</p>
+            <div class="paragraphe-flex">
+                <div class="bloc right">
+                <img src="@/assets/accueil/illustationdeux.png" alt="Illustration homme présentation">
+                <div>
+                    <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit.</h3>
+                    <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ipsum dolor sit amet</p>
+                </div> 
+            </div>
+            <div class="bloc left">
+                <div>
+                    <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit.</h3>
+                    <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ipsum dolor sit amet</p>
+                </div>
+                <img src="@/assets/accueil/illustationtrois.png" alt="Illustration homme présentation">
+            </div>
             </div>
         </section>
-        <section class="paragraphe">
-            <div class="left">
-                <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit.</h3>
-                <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ipsum dolor sit amet</p>
-            </div>
-            <img src="@/assets/accueil/illustationtrois.png" alt="Illustration homme présentation">
-        </section>
-        <h2>Ils nous font confiances</h2>
-        <section>
+        <h2 class="confiance">Ils nous font confiances</h2>
+        <section class="carousel">
             <!-- carousel -->
         </section>
     </main>
 </template>
 
 <style scoped>
-    h1 {
-        margin-top: 2rem;
+    .title{
+        margin: 4rem 0;
+    }
+
+    h1{
         font-size: 2rem;
+        margin-top: 4rem;
+    }
+
+    h2{
+        font-family: 'Righteous', cursive;
+        font-size: 2rem;
+        margin: 4rem 0;
+    }
+
+    h3{
+        font-family: 'Righteous', cursive;
     }
 
     .valeurs{
@@ -62,6 +81,8 @@
         display: flex;
         justify-content: center;
         gap: 13rem;
+        text-transform: uppercase;
+        font-weight: bold;
     }
 
     .valeurs img{
@@ -72,14 +93,14 @@
     .formations{
         display: flex;
         justify-content: center;
+        gap: 10rem;
         align-items: center;
-        gap: 12rem;
         margin: 4rem 0;
     }
 
     .formations h2{
         font-size: 2rem;
-        margin-bottom: 2rem;
+        margin: 2rem 0;
     }
 
     .formations .router{
@@ -98,20 +119,35 @@
     .paragraphe{
         display: flex;
         justify-content: center;
-        align-items: center;
-        gap: 18rem;
     }
 
-    .paragraphe div{
+    .paragraphe-flex{
         display: flex;
+        justify-content: center;
         flex-direction: column;
-        gap: 2rem;
-        flex-wrap: wrap;
-        max-width: 35%;
+        width: 70rem;
+        gap: 4rem;
+    }
+
+    .bloc{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12rem;
+        padding: 2rem 4rem;
         background: white;
         border-radius: 24px;
-        padding: 2rem 4rem;
-        margin: 3rem 0;
+    }
+
+    .bloc div{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem
+    }
+
+    .bloc p{
+        width: 70%;
+        margin: auto;
     }
 
     .right{
@@ -125,5 +161,111 @@
     .paragraphe img{
         width: 300px;
         height: auto;
+    }
+
+    .carousel{
+        padding: 4rem 0;
+    }
+
+    @media screen and (max-width:1200px){
+        .valeurs{
+            gap: 8rem;
+        }
+
+        .bloc{
+            gap: 5rem;
+        }
+
+        .paragraphe-flex{
+            width: 50rem;
+        }
+
+        
+
+    }
+
+    @media screen and (max-width:900px){
+
+        .valeurs{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 2rem;
+
+        }
+
+        .formations img{
+            width: 300px;
+            height: auto;
+        }
+
+        .formations h2{
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .paragraphe img{
+            width: 200px;
+            height: auto;
+        }
+
+        .paragraphe-flex{
+            width: 45rem;
+        }
+
+    }
+
+    @media screen and (max-width:800px){
+
+        .formations img{
+            display: none;
+        }
+
+        .paragraphe img{
+            display: none;
+        }
+
+        .bloc{
+            padding: 1.5rem 3rem;
+        }
+
+        .paragraphe-flex{
+            width: 90%;
+            margin: auto;
+        }
+        
+    }
+
+    @media screen and (max-width:600px){
+
+        .title{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: auto;
+        }
+
+        .title p{
+            margin-top: 2rem;
+        }
+        
+    }
+
+    @media screen and (max-width:400px){
+
+        .paragraphe{
+            width: 90%;
+        }
+        .bloc{
+            padding: 1rem 1rem;
+        }
+
+        .confiance{
+            width: 90%;
+            margin: auto;
+        }
+        
     }
 </style>
