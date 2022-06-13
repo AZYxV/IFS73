@@ -48,7 +48,7 @@
         width: 50rem;
         max-height: 150rem;
         box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.10);
-        margin: 4rem 0 12rem 0;
+        margin: 4rem 2rem 12rem 2rem;
         padding: 8rem 8rem;
         position: relative;
     }
@@ -75,7 +75,7 @@
     }
 
     .div-barre{
-        width: 300px;
+        width: 18rem;
         margin: 4rem 0;
         height: 2px;
         border-radius: 10px;
@@ -97,7 +97,7 @@
             left: 40px;
         }
 
-    .img-femme{
+        .img-femme{
             width: 6rem;
             height: auto;
             position: absolute;
@@ -105,32 +105,36 @@
             right: 10px;
         }
     }
-        
-    @media screen and (max-width:600px){
-        .div-apropos{
-            margin: 4rem 1rem 4rem 1rem;
-            padding: 4rem 4rem;
-        }
 
+    @media screen and (max-width:800px){
         .img-profil{
             position: static;
             margin-bottom: 4rem;
+        }
+    }
+
+    @media screen and (max-width:600px){
+        .div-apropos{
+            margin: 4rem 2rem 4rem 2rem;
+            padding: 4rem 4rem;
         }
 
         .img-femme{
             display: none;
         }
+
+        .div-barre{
+            width: 10rem;
+        }
     }
 
     @media screen and (max-width:500px){
         .div-apropos{
-            margin: 4rem 1rem 4rem 1rem;
             padding: 2rem 1rem;
         }
 
-        .img-profil{
-            position: static;
-            margin-bottom: 4rem;
+        h1{
+            font-size: 1.5rem;
         }
     }
 
