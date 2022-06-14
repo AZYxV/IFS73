@@ -1,14 +1,14 @@
 <template>
     <footer>
         <section class="section-haut">
-            <img class="img-logo" src="@/assets/logo.svg" alt="logo ifs73">
+            <img class="img-logo" src="@/assets/newlogo.svg" alt="logo ifs73">
             <div>
                 <h2>Liens</h2>
                 <ul class="ul-nav">
-                    <li><router-link class="router-footer" to="/">Accueil</router-link></li>
-                    <li><router-link class="router-footer" to="/formations">Formations</router-link></li>
-                    <li><router-link class="router-footer" to="/contact">Contact</router-link></li>
-                    <li><router-link class="router-footer" to="/about">A propos</router-link></li>
+                    <li class="li-hover"><router-link class="router-footer" to="/">Accueil</router-link></li>
+                    <li class="li-hover"><router-link class="router-footer" to="/formations">Formations</router-link></li>
+                    <li class="li-hover"><router-link class="router-footer" to="/contact">Contact</router-link></li>
+                    <li class="li-hover"><router-link class="router-footer" to="/about">A propos</router-link></li>
                 </ul>
             </div>
             <div>
@@ -17,7 +17,7 @@
                     <li><p>IFS</p></li>
                     <li><p>Savoie - Haute Savoie</p></li>
                     <li><p>Amandine Lorenzo</p></li>
-                    <li class="li-flex"><img class="img-link" src="@/assets/footer/linkedin.svg" alt=""><p>Linkedin</p></li>
+                    <li class="li-flex"><img class="img-link" src="@/assets/footer/linkedin.svg" alt=""><a href="https://fr.linkedin.com/in/amandine-lorenzo-597738143?trk=people-guest_people_search-card">Linkedin</a></li>
                 </ul>
             </div>
         </section>
@@ -46,6 +46,7 @@ export default {
         background: white;
         font-family: 'Poppins', sans-serif;
         padding: 2rem 0 2rem 0;
+        border: solid 2px red;
     }
 
     .section-haut{
@@ -55,7 +56,7 @@ export default {
     }
 
     .img-logo{
-        width: 200px;
+        width: 150px;
         height: auto;
     }
 
@@ -74,7 +75,7 @@ export default {
         color: black;
     }
 
-    .router:hover{
+    .router-footer:hover{
         color: RGBA(0,0,0,0.70);
     }
 
@@ -83,6 +84,11 @@ export default {
         justify-content: center;
         align-items: center;
         gap: 6px;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
     }
 
     .img-link{
@@ -147,7 +153,8 @@ export default {
         }
 
         .img-logo{
-            width: 150px;
+            width: 100px;
+            margin-bottom: 2rem;
         }
 
         .div-bar{
