@@ -3,6 +3,7 @@ import AccueilComponent from "@/components/AccueilComponent.vue";
 import FormationsComponent from "@/components/FormationsComponent.vue";
 import AboutComponent from "@/components/AboutComponent.vue";
 import ContactComponent from "@/components/ContactComponent.vue";
+import MentionsLegalesComponent from "@/components/MentionsLegalesComponent.vue";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: ContactComponent,
+  },
+  {
+    path: "/mentions-legales",
+    name: "MentionsLegales",
+    component: MentionsLegalesComponent,
   },
 ];
 
