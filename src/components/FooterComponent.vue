@@ -46,7 +46,6 @@ export default {
         background: white;
         font-family: 'Poppins', sans-serif;
         padding: 2rem 0 2rem 0;
-        border: solid 2px red;
     }
 
     .section-haut{

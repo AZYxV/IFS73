@@ -1,7 +1,7 @@
 <template>
     <header>
         <nav class="nav-principal">
-            <img class="logo-nav" src="@/assets/logo.svg" alt="logo ifs">
+            <img class="logo-nav" src="@/assets/newlogo.svg" alt="logo ifs">
             <ul class="ul-nav">
                 <li class="li-nav"><router-link class="router-nav" to="/">Accueil</router-link></li>
                 <li class="li-nav"><router-link class="router-nav" to="/formations">Formations</router-link></li>
@@ -37,16 +37,18 @@
 header{
   font-family: 'poppins';
 }
+
 .nav-principal{
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: white;
+    padding: 1rem 0;
 }
 
 .logo-nav{
-    width: 100px;
-    width: 100px;
+    width: 60px;
+    height: auto;
 }
 
 .ul-nav{
@@ -101,6 +103,7 @@ header{
     width: 100%;
     background-color: white;
     height: 0;
+    z-index: 100;
 }
 
 .nav-burger .router-burger{
