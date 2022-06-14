@@ -82,13 +82,10 @@
         background-color: rgba(0, 0, 0, 0.224);
     }
 
-    /* ---------------------------------Media queries------------------------------------ */
-
     @media screen and (max-width:1200px){
         .div-apropos{
             padding: 6rem 6rem;
         }
-
         .img-profil{
             width: 12rem;
             height: auto;
@@ -96,7 +93,6 @@
             top: -120px;
             left: 40px;
         }
-
         .img-femme{
             width: 6rem;
             height: auto;
@@ -118,11 +114,9 @@
             margin: 4rem 2rem 4rem 2rem;
             padding: 4rem 4rem;
         }
-
         .img-femme{
             display: none;
         }
-
         .div-barre{
             width: 10rem;
         }
@@ -132,13 +126,8 @@
         .div-apropos{
             padding: 2rem 1rem;
         }
-
         h1{
             font-size: 1.5rem;
         }
     }
-
-
-
-   
 </style>

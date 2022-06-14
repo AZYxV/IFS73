@@ -92,7 +92,6 @@
         width: 40rem;
         padding: 4rem 2rem;
         position: absolute;
-        z-index: 100;
     }
 
     .particles{
@@ -220,43 +219,33 @@
     @media screen and (max-width:1200px){
 
         .title img{
-        width: 200px;
-        height: auto;
+            width: 200px;
+            height: auto;
         }
-
         h2{
-        margin: 10rem 0 4rem 0;
+            margin: 10rem 0 4rem 0;
         }
-
         .particles img{
-        width: 800px;
-        height: auto;
+            width: 800px;
+            height: auto;
         }
-
         .form{
-        width: 30rem;
+            width: 30rem;
         }
-
         input[type="text"]{
-        width: 10rem;
+            width: 10rem;
         }
-
-        input[type="email"]{
-        width: 22rem;
+        input[type="email"], textarea{
+            width: 22rem;
         }
-
-        textarea{
-        width: 22rem;
-        }
-
     }
 
     @media screen and (max-width:1000px){
 
         .contact{
-        flex-direction: column;
+            flex-direction: column;
+            gap: 4rem;
         }
-        
     }
 
     @media screen and (max-width:900px){
@@ -264,91 +253,67 @@
         .title img{
             display: none;
         }
-
         h2{
             margin: 4rem 0;
         }
-
         .particles img{
             display: none;
         }
-
         .form{
-        position: relative;
+            position: relative;
         }
-
     }
 
     @media screen and (max-width:600px){
 
         .form{
-        width: 20rem;
+        width: 22rem;
+        margin: auto;
         padding: 2rem;
         }
-
-        .name{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
+        input[type="text"], input[type="email"], textarea{
+            width: 16rem;
+            margin: 1rem 0;
         }
-
-        input[type="text"]{
-        width: 16rem;
-        margin: 1rem 0;
-        }
-
-        input[type="email"]{
-        width: 16rem;
-        margin: 1rem 0;
-        }
-
-        textarea{
-        width: 16rem;
-        margin: 1rem 0;
-        }
-
         .rgpd{
-        margin: 1rem 0;
+            margin: 1rem 0;
         }
-
         input[type="submit"]{
             margin-top: 1rem;
         }
-
         .contact iframe{
-        border-radius: 24px;
-        width: 300px;
-        height: 250px;
-        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.10);
+            width: 22rem;
+            height: auto;
         }
-
         .informations{
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        background-color: white;
-        border-radius: 24px;
-        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.10);
-        padding: 1rem;
-    }
-
-    .infos{
-        display: flex;
-        align-items: center;
-        justify-content: left;
-        align-items: center;
-        gap: 1rem;
-    }
-
+            width: 22rem;
+            height: auto;
+        }
         .infos img{
-        width: 40px;
-        height: auto;
-    }
+            width: 40px;
+        }
         
     }
 
-    @media screen and (max-width:400px){
+    @media screen and (max-width:360px){
+
+        input[type="text"], input[type="email"], textarea{
+            width: 12rem;
+        }
+        input[type="submit"]{
+            width: 10rem;
+        }
+        .form{
+            width: 16rem;
+        }
+        .contact iframe{
+            width: 16rem;
+            height: auto;
+        }
+        .informations{
+            width: 16rem;
+            height: auto;
+        }
         
     }
 </style>

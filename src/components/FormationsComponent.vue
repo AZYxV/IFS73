@@ -1,6 +1,6 @@
 <template>
     <main>
-        <h1>Decouvrer nos formations</h1>
+        <h1>Decouvrez nos formations</h1>
         <section class="section-microsoft">
             <div class="div-microsoft">
                 <img class="logo-microsoft" src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">

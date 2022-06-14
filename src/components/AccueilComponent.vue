@@ -171,17 +171,12 @@
         .valeurs{
             gap: 8rem;
         }
-
         .bloc{
             gap: 5rem;
         }
-
         .paragraphe-flex{
             width: 50rem;
         }
-
-        
-
     }
 
     @media screen and (max-width:900px){
@@ -194,22 +189,18 @@
             grid-row-gap: 2rem;
 
         }
-
         .formations img{
             width: 300px;
             height: auto;
         }
-
         .formations h2{
             font-size: 1.5rem;
             margin-bottom: 2rem;
         }
-
         .paragraphe img{
             width: 200px;
             height: auto;
         }
-
         .paragraphe-flex{
             width: 45rem;
         }
@@ -221,18 +212,15 @@
         .formations img{
             display: none;
         }
-
         .paragraphe img{
             display: none;
         }
-
         .bloc{
             padding: 1.5rem 3rem;
         }
-
         .paragraphe-flex{
-            width: 90%;
-            margin: auto;
+            width: 100%;
+            padding: 0 2rem;
         }
         
     }
@@ -246,26 +234,24 @@
             width: 80%;
             margin: auto;
         }
-
         .title p{
             margin-top: 2rem;
         }
-        
     }
 
     @media screen and (max-width:400px){
 
-        .paragraphe{
-            width: 90%;
+        .paragraphe-flex{
+            width: 100%;
+            padding: 0 1rem;
         }
         .bloc{
             padding: 1rem 1rem;
         }
-
         .confiance{
             width: 90%;
             margin: auto;
+            padding: 4rem 0;
         }
-        
     }
 </style>
