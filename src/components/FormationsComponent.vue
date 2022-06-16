@@ -2,22 +2,22 @@
     <main>
         <h1>Decouvrez nos formations</h1>
         <section class="section-microsoft">
-            <div class="div-microsoft">
-                <img class="logo-microsoft" src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">
-                <button class="btn-decouvrir">Découvrir</button>
+            <div class="section-microsoft__item">
+                <img src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">
+                <button>Découvrir</button>
             </div>
-            <div class="div-microsoft">
-                <img class="logo-microsoft" src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
-                <button class="btn-decouvrir">Découvrir</button>               
+            <div class="section-microsoft__item">
+                <img src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
+                <button>Découvrir</button>               
             </div>
-            <div class="div-microsoft">
-                <img class="logo-microsoft" src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
-                <button class="btn-decouvrir">Découvrir</button>
+            <div class="section-microsoft__item">
+                <img src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
+                <button>Découvrir</button>
             </div>
         </section>
         
         <section class="section-presentation">
-            <div class="div-presentation">
+            <div class="section-presentation__div">
                 <h3>Vous souhaitez acquérir des compétences et améliorer votre maîtrise des logiciels de bureautique ?</h3>
                 <p>
                     La maitrise de la bureautique renforce votre productivité et votre efficacité professionnelle.
@@ -33,15 +33,15 @@
         </section>
         
         <section class="section-contact">
-            <img class="img-femme" src="@/assets/formations/femme_formation.png" alt="illutration femme formation">
-            <div class="div-contact">
+            <img src="@/assets/formations/femme_formation.png" alt="illutration femme formation">
+            <div class="section-contact__div">
                 <h2>Contactez nous !</h2>
-                <router-link class="router-nav" to="/contact">Contact</router-link>
+                <router-link class="router" to="/contact">Contact</router-link>
             </div>
         </section>
        
         <section class="section-blocs">
-            <div class="div-blocs">
+            <div class="section-blocs__div">
                 <h3>Une formation pour tous !</h3>
                 <p>
                     Que vous soyez salarié, entrepreneur ou demandeur d’emploi,
@@ -50,7 +50,7 @@
                     dans un contexte professionnel ou personnel. 
                 </p>
             </div>
-            <div class="div-blocs">
+            <div class="section-blocs__div">
                 <h3>Comment financer sa formation ?</h3>
                 <p> 
                     Informatique Formation Sécurité est enregistré en tant qu'organisme de formation professionnelle 
@@ -62,182 +62,171 @@
     </main>
 </template>
 
-<style scoped>
-   h1{
-       font-size: 2rem;
-       margin-top: 4rem;
-   }
+<style lang="scss" scoped>
 
-   .section-microsoft{
-       display: flex;
-       justify-content: center;
-       gap: 120px;
-       margin-top: 4rem;
-   }
+@import "@/scss/variables";
 
-   .div-microsoft{
-       display: flex;
-       justify-content: center;
-       flex-direction: column;
-       gap: 12px;
-       align-items: center;
-   }
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap-4;
+    padding: 4rem 1rem;
+}
 
-   .logo-microsoft{
-       width: 11rem;
-       height: auto;
-   }
+h1{
+    font-size: 1.5rem;
+}
 
-   .btn-decouvrir{
-       border: none;
-       background-color: #E2003F;
-       color: white;
-       padding: .5rem 1rem;
-       border-radius: 12px;
-       font-size: 1rem;
-       cursor: pointer;
-   }
+h2,h3{
+    font-family: 'Righteous', cursive;
+}
 
-   .section-presentation{
-       display: flex;
-       justify-content: center;
-       margin-top: 4rem;
-   }
-
-   .div-presentation{
-       background-color: white;
-       border-radius: 24px;
-       width: 70rem;
-       max-height: 100rem;
-       padding: 2rem 4rem;
-       box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.10);
-       margin: 0 3rem;
+.section-microsoft{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    &__item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
     }
 
-    .section-contact{
-       display: flex;
-       justify-content: center; 
-       align-items: center;
-       margin-top: 4rem;
-       gap: 160px;
-    }
-
-    .img-femme{
-        width: 400px;
+    &__item img{
+        width: 120px;
         height: auto;
     }
 
-    h2{
-       font-size: 2rem;
-       font-family: 'Righteous', cursive;
-       margin-bottom: 2rem;
+    &__item button{
+        color: white;
+        border-radius: $radius-12;
+        padding: .5rem 1rem;
+        background: $secondary-color;
+        border: 1px solid $secondary-color;
+        transition: all 0.2s ease-in-out;
+    
+        &:hover{
+            background: $primary-color;
+            color: $secondary-color;
+        }
+    }
+}   
+
+.section-presentation{
+    &__div{
+        background-color: $primary-color;
+        border-radius: $radius-24;
+        box-shadow: $box-shadow-bottom;
+        padding: 2rem 1rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+.section-contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $gap-4;
+    
+    img{
+        display: none;
     }
 
-    .router-nav{
+    &__div{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      
+      .router{
+        color: $primary-color;
         text-decoration: none;
-        border: none;
-        background-color: #E2003F;
-        color: white;
+        border-radius: $radius-12;
         padding: .5rem 1rem;
-        border-radius: 12px;
+        background: $secondary-color;
+        border: 1px solid $secondary-color;
+        transition: all 0.2s ease-in-out;
+        }
+
+        .router:hover{
+            background: $primary-color;
+            color: $secondary-color;
+        }
+    }
+}
+
+.section-blocs{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: $gap-4;
+
+    &__div{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-color: $primary-color;
+        border-radius: $radius-24;
+        box-shadow: $box-shadow-bottom;
+        padding: 2rem 1rem;
+        gap: 12px;
+    }
+}
+
+@media (min-width:768px){
+    h1{
+        font-size: 2rem;
+    }
+
+    .section-microsoft{
+
+        flex-direction: row;
+        gap: $gap-4;
+
+        &__item{
+            flex-direction: column;
+        }
+ 
+        &__item img{
+            width: 150px;
+        }
+    }
+
+    .section-contact{
+        img{
+            display: block;
+            height: auto;
+            width: clamp(5rem, 30%, 100%);
+        }
     }
 
     .section-blocs{
-        padding: 4rem 0;
-        display: flex;
-        justify-content: center;
-        gap: 120px;
+        flex-direction: row;
     }
-    
-    .div-blocs{
-        background-color: white;
-        border-radius: 24px;
-        width: 30rem;
-        max-height: 100rem;
-        padding: 2rem 4rem;
-        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.10);
-        margin: 0 3rem;
-    }
+}
 
-    h3{
-        font-size: 1.25rem;
-        font-family: 'Righteous', cursive;
-        padding-bottom: 2rem;
+@media (min-width:1024px){
+    .section-presentation,.section-blocs{
+        padding: 0 5%;
+    }
+}
+
+@media (min-width:1440px){
+    .section-presentation,.section-blocs{
+        padding: 0 10%;
     }
 
-/* ---------------------------------Media queries------------------------------------ */
-
-    @media screen and (max-width:1200px){
-        .section-blocs{
-            gap: 48px;
-        }
-     }
-    
-    @media screen and (max-width:900px){
-        
-        .logo-microsoft{
-            width: 8rem;
-        }
-
-        .section-contact{
-            gap: 48px;
-        }
-
-        .section-blocs{
-            gap: 12px;
-        }
-
-        h2{
-            font-size: 1.5rem;
+    .section-contact{
+        img{
+             width: clamp(5rem, 25%, 100%);
         }
     }
-
-     @media screen and (max-width:800px){
-        .section-microsoft{
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .div-microsoft{
-            flex-direction: row;
-            gap: 12px;
-        }
-
-        .logo-microsoft{
-            width: 12rem;
-        }
-
-         .img-femme{
-           display: none;
-        }
-
-        .section-blocs{
-            flex-direction: column;
-            gap: 48px;
-        }
-
-        .div-blocs{
-            width: auto;
-            padding: 2rem 2rem;
-        }
-
-        .div-presentation{
-            padding: 2rem 2rem;
-        }
-    }
-
-    @media screen and (max-width:400px){
-
-        h1{
-            font-size: 1.5rem;
-        }
-        
-        .logo-microsoft{
-            width: 8rem;
-        }
-
-        .div-presentation,.div-blocs{
-             margin: 0 1rem;
-        }
-    }
+}
 </style>
