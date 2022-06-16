@@ -33,7 +33,7 @@ main{
   background: linear-gradient(0deg, rgba(255,241,235,1) 20%, rgba(255,255,255,1) 100%);
 }
 
-h1{
+h1, h2, h3{
   font-family: 'Righteous', cursive;
 }
 </style>

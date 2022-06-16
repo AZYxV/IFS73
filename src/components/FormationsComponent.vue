@@ -36,7 +36,7 @@
             <img src="@/assets/formations/femme_formation.png" alt="illutration femme formation">
             <div class="section-contact__div">
                 <h2>Contactez nous !</h2>
-                <router-link class="router" to="/contact">Contact</router-link>
+                <router-link class="router" to="/contact">Accéder</router-link>
             </div>
         </section>
        
@@ -132,7 +132,7 @@ h2,h3{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: $gap-4;
+    gap: 12rem;
     
     img{
         display: none;
@@ -144,7 +144,9 @@ h2,h3{
       flex-direction: column;
       align-items: center;
       gap: 12px;
-      
+      h2{
+        font-size: 1.5rem;
+      }
       .router{
         color: $primary-color;
         text-decoration: none;
@@ -204,6 +206,11 @@ h2,h3{
             display: block;
             height: auto;
             width: clamp(5rem, 30%, 100%);
+        }
+        &__div{
+            h2{
+            font-size: 2rem;
+            }
         }
     }
 

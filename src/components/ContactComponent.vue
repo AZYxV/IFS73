@@ -147,6 +147,10 @@
         }
     }
 
+    h2{
+        font-size: 1.5rem;
+    }
+
     .section-contact{
         display: flex;
         flex-direction: column;
@@ -251,6 +255,10 @@
                 }
             }   
         }
+
+        h2{
+        font-size: 2rem;
+    }
 
         .section-contact{
             iframe{

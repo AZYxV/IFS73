@@ -154,11 +154,20 @@
         }
     }
 
+    .h2-confiance{
+        font-size: 1.5rem;
+    }
+
     @media (min-width: 768px) {
 
+        .div-title{
+            h1{
+                font-size: 2rem;
+            }
+        }
         .section-valeurs{
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 1fr;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
         &__item{
             img{
                 width: clamp(5rem, 60%, 100%);
@@ -168,37 +177,51 @@
         }
 
         .section-formations{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4rem;
-        img{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            &__div{
+                h2{
+                    font-size: 2rem;
+                }
+            }
+            img{
                 display: block;
                 width: clamp(5rem, 40%, 100%);
             }
         }
 
         .section-paragraphe{
-        &__bloc{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: $gap-4;
-            img{
-                display: block;
-                width: clamp(5rem, 25%, 50%);
+            &__bloc{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: $gap-4;
+                img{
+                    display: block;
+                    width: clamp(5rem, 25%, 50%);
+                }
             }
         }
+
+        .h2-confiance{
+            font-size: 2rem;
         }
     }
 
     @media (min-width: 1024px) {
+
+        .section-formations{
+            gap: 12rem;
+        }
         .section-paragraphe{
             padding: 0 5%;
             &__bloc{
             gap: 12rem;
+            }
         }
-        }
+
     }
 
     @media (min-width: 1440px) {
