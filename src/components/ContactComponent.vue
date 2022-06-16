@@ -32,18 +32,18 @@
         </section>
         <h2>Nous trouver</h2>
         <section class="section-contact">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.894617611076!2d5.840313715323585!3d45.61276167910305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478b0862d14da5b3%3A0xc1d509f20ee81209!2s77%20Chem.%20de%20Cattis%2C%2073290%20La%20Motte-Servolex!5e0!3m2!1sfr!2sfr!4v1654872125107!5m2!1sfr!2sfr" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11170.412255209016!2d5.946843942670257!3d45.57842028460409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478ba8b62add3771%3A0xcf4b022afedda8a4!2s45%20Pl.%20du%20Commerce%2C%2073230%20Saint-Alban-Leysse!5e0!3m2!1sfr!2sfr!4v1655390312888!5m2!1sfr!2sfr" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div class="section-contact__div">
                 <div class="section-contact__div__infos">
                     <img src="@/assets/contact/Map.svg" alt="Icon Curseur Carte">
                     <div>
-                        <p>77 chemin des Cattis</p>
-                        <p>73290 LA MOTTE SERVOLEX</p>
+                        <p>45, place du commerce</p>
+                        <p>73230 SAINT ALBAN LEYSSE</p>
                     </div>
                 </div>
                 <div class="section-contact__div__infos">
                     <img src="@/assets/contact/mail.svg" alt="Icon Lettre">
-                    <p>contact@ifs73.fr</p>
+                    <p>a.lorenzo@ifs73.fr</p>
                 </div>
                 <div class="section-contact__div__infos">
                     <img src="@/assets/contact/linkedin.svg" alt="Icon Réseau Social Linkedin">
@@ -257,8 +257,8 @@
         }
 
         h2{
-        font-size: 2rem;
-    }
+            font-size: 2rem;
+        }
 
         .section-contact{
             iframe{
