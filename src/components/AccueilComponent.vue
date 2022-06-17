@@ -65,7 +65,7 @@
         align-items: center;
         justify-content: center;
         gap: $gap-4;
-        padding: 4Rem 1rem;
+        padding: 4rem 1rem;
     }
 
     .div-title{
