@@ -1,7 +1,25 @@
 
 <template>
     <main>
-        <div class="div-title">
+        <agile :mobileFirst="true" :navButtons="false" :dots="false" :autoplay="true" :speed="1000">
+            <div class="slide">
+                <div class=" slide__one slide__slider">
+                    <h2>Bienvenue sur IFS73</h2>
+                    <h3>Vous souhaitez améliorer votre maîtrise des logiciels de bureautique ?</h3>
+                    <p>La maitrise de la bureautique renforce votre productivité et votre efficacité professionnelle</p>
+                    <router-link class="slide__one__router" to="/formations">Nos formations</router-link>
+                </div>
+            </div>
+            <div class="slide">
+                <div class=" slide__two slide__slider">
+                    <h2>Suivez-moi</h2>
+                    <h3>Retrouvez mon profils sur Linkedin</h3>
+                    <a class="slide__two__a" href="https://fr.linkedin.com/in/amandine-lorenzo-597738143?trk=people-guest_people_search-card&original_referer=http%3A%2F%2Flocalhost%3A8080%2F">Mon profil</a>
+                </div>
+            </div>
+        </agile>
+        <div class="container">
+<div class="div-title">
             <h1>Formations bureautiques sur mesure</h1>
             <p>Aix-les-Bains • Chambéry • Annecy • Savoie • Haute-Savoie • Isère</p>
         </div>
@@ -48,25 +66,183 @@
                 <img src="@/assets/accueil/illustationtrois.png" alt="Illustration homme présentation">
             </div>
         </section>
-        <h2 class="h2-confiance">Ils nous font confiances</h2>
+        <h2 class="h2-confiance">Ils nous font confiance</h2>
         <section class="carousel">
-            <!-- carousel -->
+            <div class="carousel__slider">
+	<div class="carousel__slider__track">
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoCCI.png" alt="Logo CCI" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoIDRAC.png" alt="Logo IDRAC" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoIPAC.png" alt="Logo IPAC" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoM2I.png" alt="Logo M2I" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoOMNES.png" alt="Logo OMNES" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoWEBFORCE3.png" alt="Logo WEBFORCE3" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoCCI.png" alt="Logo CCI" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoIDRAC.png" alt="Logo IDRAC" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoIPAC.png" alt="Logo IPAC" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoM2I.png" alt="Logo M2I" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoOMNES.png" alt="Logo OMNES" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoWEBFORCE3.png" alt="Logo WEBFORCE3" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoCCI.png" alt="Logo CCI" />
+                    </div>
+                    <div class="carousel__slider__track__slide">
+                        <img src="@/assets/accueil/LogoIDRAC.png" alt="Logo IDRAC" />
+                    </div>
+	</div>
+            </div>
         </section>
+        </div>
     </main>
 </template>
 
+<script>
+    import { VueAgile } from 'vue-agile';
+
+
+    export default {
+        components: {
+        agile: VueAgile,
+        }
+    }
+</script>
+
 <style lang="scss" scoped>
 
-    @import "@/scss/_variables.scss";
+@import "@/scss/_variables.scss";
 
-    main{
+    .container{
+
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: $gap-4;
         padding: 4Rem 1rem;
+
     }
+
+    .agile{
+    width: 100%;
+}
+    .slide{
+        &__slider{
+            height: 20vh;
+        }
+        &__one{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            &::before{
+                content: "";
+                background-image: url('@/assets/accueil/banner2.jpg');
+                position: absolute;
+                background-position: center;
+                background-size: cover;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                z-index: -1;
+                opacity: .5;
+            }
+            h2{
+                font-size: 1.5rem;
+                color: black;
+            }
+            h3{
+                display: none;
+            }
+            p{
+                display: none;
+            }
+            &__router{
+                    font-size: 1rem;
+                    color: $primary-color;
+                    background: $secondary-color;
+                    text-decoration: none;
+                    padding: 0.5rem .5rem;
+                    border-radius: $radius-12;
+                    border: 1px solid $secondary-color;
+                    transition: all 0.2s ease-in-out;
+                    &:hover{
+                        background: transparent;
+                        color: $secondary-color;
+                    }
+                }
+        }
+    &__two{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        &::before{
+            content: "";
+            background-image: url('@/assets/accueil/banner1.png');
+            position: absolute;
+            background-position: center;
+            background-size: cover;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            opacity: .5;
+        }
+        h2{
+            font-size: 1.5rem;
+            color: black;
+        }
+        h3{
+            display: none;
+        }
+        p{
+            display: none;
+        }
+        &__a{
+            font-size: 1rem;
+            color: $primary-color;
+            background: $secondary-color;
+            text-decoration: none;
+            padding: 0.5rem .5rem;
+            border-radius: $radius-12;
+            border: 1px solid $secondary-color;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                background: transparent;
+                color: $secondary-color;
+            }
+        }
+    }
+}
 
     .div-title{
         display: flex;
@@ -158,7 +334,107 @@
         font-size: 1.5rem;
     }
 
+    @mixin white-gradient {
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+
+$animationSpeed: 40s;
+
+// Animation
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+
+// Styling
+.carousel__slider {
+	background: white;
+    border-radius: $radius-24;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 80px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 90vw;
+	
+	&::before,
+	&::after {
+        @include white-gradient;
+		content: "";
+		height: 150px;
+		position: absolute;
+		width: 50px;
+		z-index: 2;
+	}
+	
+	&::after {
+		right: 0;
+		top: 0;
+		transform: rotateZ(180deg);
+	}
+
+	&::before {
+		left: 0;
+		top: 0;
+	}
+	
+	&__track {
+		animation: scroll $animationSpeed linear infinite;
+		display: flex;
+        margin: 10px;
+		width: calc(150px * 14);
+        &__slide {
+		height: 100px;
+		width: 150px;
+        img{
+        height: 60px;
+		width: 150px;
+        }
+	}
+	}
+}
+
+    @media (min-width: 375px) {
+        .slide{
+            &__slider{
+                height: 22.5vh;
+            }
+        }
+    }
+
+    @media (min-width: 425px) {
+        .slide{
+            &__slider{
+                height: 25vh;
+            }
+        }
+    }
+
     @media (min-width: 768px) {
+
+        .slide{
+            &__slider{
+                height: 45vh;
+            }
+            &__one{
+                h2{
+                    font-size: 3rem;
+                }
+                h3,p{
+                    display: block;
+                }
+            }
+            &__two{
+                h2{
+                    font-size: 3rem;
+                }
+                h3,p{
+                    display: block;
+                }
+            }
+            
+        }
 
         .div-title{
             h1{
@@ -208,9 +484,50 @@
         .h2-confiance{
             font-size: 2rem;
         }
+
+        .carousel__slider {
+	height: 100px;
+	width: 90vw;
+	
+	&::before,
+	&::after {
+		height: 100px;
+		width: 100px;
+	}
+	
+	&__track {
+        margin: 10px;
+		width: calc(200px * 14);
+        &__slide {
+		height: 100px;
+		width: 200px;
+        img{
+        height: 80px;
+		width: 200px;
+        }
+	}
+	}
+}
     }
 
     @media (min-width: 1024px) {
+
+        .slide{
+            &__slider{
+                height: 55vh;
+            }
+            &__one{
+                h2{
+                    font-size: 4rem;
+                }
+            }
+            &__two{
+                h2{
+                    font-size: 4rem;
+                }
+            }
+        }
+
 
         .section-formations{
             gap: 12rem;
@@ -218,18 +535,50 @@
         .section-paragraphe{
             padding: 0 5%;
             &__bloc{
-            gap: 12rem;
+            gap: 8rem;
             }
         }
+
+        .carousel__slider {
+	width: 800px;
+}
 
     }
 
     @media (min-width: 1440px) {
+
+        .slide{
+            &__slider{
+                height: 65vh;
+            }
+        }
         .section-paragraphe{
             padding: 0 10%;
-            &__bloc{
-            gap: 12rem;
         }
+
+        .carousel__slider {
+	height: 150px;
+	width: 1000px;
+	
+	&::before,
+	&::after {
+		height: 150px;
+		width: 200px;
+	}
+	
+	&__track {
+        margin: 25px;
+		width: calc(250px * 14);
+        &__slide {
+		height: 100px;
+		width: 250px;
+        img{
+        height: 100px;
+		width: 250px;
         }
+	}
+	}
+}
+        
     }
 </style>
