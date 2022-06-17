@@ -1,21 +1,19 @@
 <template>
     <main>
         <h1>A propos de moi...</h1>
-        <section>
-            <div class="div-apropos">
+        <section class="section-about">
+            <div class="section-about__div">
                 <img class="img-profil" src="@/assets/about/profil.png" alt="">
                 <h2>Amandine Lorenzo</h2>
                 <p>
                     Assistante de direction et formatrice bureautique depuis 2017, j’ai eu la chance de reprendre le 
                     flambeau de la société IFS73 en tant que gérante en 2020.
                 </p>
-                <div class="div-barre"></div>
                 <p>
-                    Diplômée d’un bachelor management et
+                    Diplômée d’un bachelor management 
                     gestion des entreprises, j’ai la chance aujourd’hui d’allier mon intérêt pour l’organisation et la 
                     gestion avec mon sens de la communication et du partage.
                 </p>
-                <div class="div-barre"></div>
                 <p>
                     Valeurs :
                     Bienveillance // Ecoute // Esprit d’equipe 
@@ -26,108 +24,103 @@
     </main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import "@/scss/_variables.scss";
 
-    h1{
-       font-size: 2rem;
-       margin-top: 4rem;
-    }
-
-    section{
-        display: flex;
-        justify-content: center;
-    }
-
-    .div-apropos{
+    main{
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        background-color: white;
-        border-radius: 24px;
-        width: 50rem;
-        max-height: 150rem;
-        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.10);
-        margin: 4rem 2rem 12rem 2rem;
-        padding: 8rem 8rem;
-        position: relative;
+        gap: $gap-4;
+        padding: 4rem 1rem;
+    }
+    
+    h1{
+       font-size: 1.5rem;
     }
 
     h2{
         font-family: 'Righteous', cursive;
-        margin-bottom: 4rem;
     }
 
-    .img-profil{
-        width: 15rem;
-        height: auto;
-        position: absolute;
-        top: -120px;
-        left: -120px;
-    }
-
-    .img-femme{
-        width: 8rem;
-        height: auto;
-        position: absolute;
-        bottom: -120px;
-        right: -70px;
-    }
-
-    .div-barre{
-        width: 18rem;
-        margin: 4rem 0;
-        height: 2px;
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.224);
-    }
-
-    @media screen and (max-width:1200px){
-        .div-apropos{
-            padding: 6rem 6rem;
-        }
-        .img-profil{
-            width: 12rem;
-            height: auto;
-            position: absolute;
-            top: -120px;
-            left: 40px;
-        }
-        .img-femme{
-            width: 6rem;
-            height: auto;
-            position: absolute;
-            bottom: -150px;
-            right: 10px;
-        }
-    }
-
-    @media screen and (max-width:800px){
-        .img-profil{
-            position: static;
-            margin-bottom: 4rem;
-        }
-    }
-
-    @media screen and (max-width:600px){
-        .div-apropos{
-            margin: 4rem 2rem 4rem 2rem;
-            padding: 4rem 4rem;
-        }
-        .img-femme{
-            display: none;
-        }
-        .div-barre{
-            width: 10rem;
-        }
-    }
-
-    @media screen and (max-width:500px){
-        .div-apropos{
+    .section-about{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        &__div{
+            position: relative;
+            background-color: $primary-color;
+            border-radius: $radius-24;
+            box-shadow: $box-shadow-bottom;
             padding: 2rem 1rem;
-        }
-        h1{
-            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: $gap-4;
+
+            .img-profil{
+                width: 200px;
+                height: auto;
+            }
+            .img-femme{ 
+                display: none;
+                width: 100px;
+                height: auto;
+            }
         }
     }
+
+    @media (min-width:768px){
+        h1{
+            font-size: 2rem;
+        }
+
+        .section-about{
+            padding: 0 5%;
+        
+            &__div{
+                padding: 4rem;
+            }
+        }
+    }
+
+    @media (min-width:1024px){
+        .section-about{
+            padding: 0 10%;
+        
+            &__div{
+                margin-bottom: 10rem;
+
+                .img-profil{
+                    position: absolute;
+                    width: 200px;
+                    height: auto;
+                    top: -100px;
+                    left: -60px;
+                }
+                .img-femme{
+                    position: absolute;
+                    display: block; 
+                    bottom: -150px;
+                    right: -60px;  
+                } 
+            }
+        }
+    }
+
+    @media (min-width:1440px){
+        .section-about{
+            padding: 0 20%;
+            &__div{
+                .img-femme{
+                    width: 120px;
+                } 
+            }
+        }
+    }
+
+    
 </style>
