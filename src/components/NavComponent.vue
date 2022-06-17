@@ -1,21 +1,21 @@
 <template>
     <header>
         <nav class="nav-principal">
-            <img class="logo-nav" src="@/assets/newlogo.svg" alt="logo ifs">
-            <ul class="ul-nav">
-                <li class="li-nav"><router-link class="router-nav" to="/">Accueil</router-link></li>
-                <li class="li-nav"><router-link class="router-nav" to="/formations">Formations</router-link></li>
-                <li class="li-nav"><router-link class="router-nav" to="/about">A propos</router-link></li>
-                <li class="li-nav"><router-link class="router-nav" to="/contact">Contact</router-link></li>
+            <router-link class="router" to="/"><img class="nav-principal__logo" src="@/assets/newlogo.svg" alt="logo IFS"></router-link>
+            <ul class="nav-principal__ul">
+                <li class="nav-principal__ul__li"><router-link class="router" to="/">Accueil</router-link></li>
+                <li class="nav-principal__ul__li"><router-link class="router" to="/formations">Formations</router-link></li>
+                <li class="nav-principal__ul__li"><router-link class="router" to="/about">A propos</router-link></li>
+                <li class="nav-principal__ul__li"><router-link class="router" to="/contact">Contact</router-link></li>
             </ul>
-            <div class="menu-burger">
+            <div class="nav-principal__burger">
                 <input type="checkbox" id="check">
-                <label for="check" class="label-btn">
+                <label for="check" class="nav-principal__burger__label">
                     <span></span>
                     <span></span>
                     <span></span>
                 </label>
-                <nav class="nav-burger">
+                <nav class="nav-principal__burger__nav-burger">
                     <router-link class="router-burger" to="/">Accueil</router-link>
                     <router-link class="router-burger" to="/formations">Formations</router-link>
                     <router-link class="router-burger" to="/about">A propos</router-link>
@@ -26,158 +26,154 @@
     </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+
+@import "@/scss/variables";
  
- /* ===================================================================================
-                                  NAVBAR
-====================================================================================== */
-
-/* --------------------------------TAILLE ELEMENTS NAV-------------------------------- */
-
-header{
-  font-family: 'poppins';
+footer{
+    display: flex;
+    flex-direction: column;
+    gap: $gap-4; 
 }
 
 .nav-principal{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: white;
     padding: 1rem 0;
-}
 
-.logo-nav{
-    width: 60px;
-    height: auto;
-}
+    &__logo{
+        width: 80px;
+        height: auto;
+    }
 
-.ul-nav{
-    display: flex;
-    justify-content: center;
-    gap: 6rem;
-}
-
-.li-nav{
-    list-style: none;
-}
-
-.router-nav{
-    text-decoration: none;
-    color: black; 
-    font-size: 1.25rem;
-}
-
-/* --------------------------------MENU BURGER-------------------------------------- */
-.menu-burger{
-    display: none;
-}
-
-#check{
-    display: none;
-}
-
-.label-btn{
-    width: 48px;
-    height: 48px;
-    padding: 10px;
-    display: inline-block;
-    cursor: pointer;
-    transition: all 0.2s ease-in;
-    line-height: 7.5px;
-}
-
-.label-btn span{
-    height: 3px;
-    width: 100%;
-    border-radius: 50px;
-    background-color: rgb(0, 0, 0);
-    display: inline-block;
-    transition: all 0.5s cubic-bezier(.62,.43,.35,1.47);
-}
-
-.nav-burger{
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    height: 0;
-    z-index: 100;
-}
-
-.nav-burger .router-burger{
-    text-decoration: none;
-    color: black;
-    display: block;
-    font-size: 1rem;
-    text-align: center;
-}
-
-/* ---------------------------------HOVER NAV------------------------------------ */
-
-.li-nav:after {
-    display      : block;
-    content      : '';
-    border-bottom: solid 2px #E2003F;
-    border-radius: 50px;
-    transform    : scaleX(0);
-    transition   : transform 300ms ease-in-out;
-}
-
-.li-nav:hover:after {
-    transform: scaleX(1);
-}
-
-.router-nav.router-link-active{
-    color: #E2003F;
-}
-
-.router-burger.router-link-active{
-    color: #E2003F;
-}
-
-/* -------------------------MENU BURGER CHECKED------------------------------------ */
-
-#check:checked ~ .label-btn span:nth-child(1){
-    width: 30px;
-    transform: rotate(45deg) translateY(6px) translateX(6px);
-}
-
-#check:checked ~ .label-btn span:nth-child(2){
-    width: 0;
-}
-
-#check:checked ~ .label-btn span:nth-child(3){
-    width: 30px;
-    transform: rotate(-45deg) translateY(-7px) translateX(7px);
-}
-
-#check:checked ~ .nav-burger{
-    height: 180px;
-    margin-top: 6.2rem;
-}
-
-#check:checked ~ .nav-burger .router-burger{
-    padding: 10px;
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* ---------------------------------MEDIA QUERIES------------------------------------ */
-
-@media screen and (max-width:900px){
-
-    .ul-nav{
+    &__ul{
         display: none;
+        justify-content: center;
+        gap: $gap-4;
+
+        &__li{
+            list-style: none;
+            
+            .router{
+                text-decoration: none;
+                color: black;
+                font-size: 1.25rem;
+            }
+
+            .router.router-link-active{
+                color: $secondary-color;
+            }   
+        }
+
+        &__li:after{
+            display      : block;
+            content      : '';
+            border-bottom: solid 2px $secondary-color;
+            border-radius: 50px;
+            transform    : scaleX(0);
+            transition   : transform 300ms ease-in-out;
+        }
+
+        &__li:hover:after{
+            transform: scaleX(1);
+        }
     }
 
-    .menu-burger{
-        display: block;
-    }
- }
+    &__burger{
 
-/* ===================================================================================
-                              FIN NAVBAR
-====================================================================================== */
+        #check{
+            display: none;
+        }
+
+        #check:checked ~ .nav-principal__burger__label span:nth-child(1){
+            width: 30px;
+            transform: rotate(45deg) translateY(7px) translateX(7px);
+        }
+
+        #check:checked ~ .nav-principal__burger__label span:nth-child(2){
+            width: 0;
+        }
+
+        #check:checked ~ .nav-principal__burger__label span:nth-child(3){
+            width: 30px;
+            transform: rotate(-45deg) translateY(-7px) translateX(7px);
+        }
+
+        #check:checked ~ .nav-principal__burger__nav-burger{
+            height: 180px;
+            margin-top: 6.2rem;
+        }
+
+        #check:checked ~ .nav-principal__burger__nav-burger .router-burger{
+            padding: 10px;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        &__label{
+            width: 48px;
+            height: 48px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in;
+            gap: 7px;
+            
+
+            span{
+                height: 3px;
+                width: 100%;
+                border-radius: 50px;
+                background-color: rgb(0, 0, 0);
+                display: inline-block;
+                transition: all 0.5s cubic-bezier(.62,.43,.35,1.47);
+            }
+        }
+
+        &__nav-burger{
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            height: 0;
+            z-index: 100;
+
+            .router-burger{
+                text-decoration: none;
+                color: black;
+                display: block;
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .router-burger.router-link-active{
+                color: $secondary-color;
+            }
+        }
+    }
+}
+
+@supports(-moz-appearance: none){
+    .nav-principal__burger__label{
+        line-height: 19.5px;
+    }
+
+}
+
+@media (min-width:768px){
+    .nav-principal{
+        &__ul{
+            display: flex;
+        }
+        &__burger{
+            display: none;
+        }
+    }
+}
 </style>
