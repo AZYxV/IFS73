@@ -4,6 +4,7 @@ import FormationsComponent from "@/components/FormationsComponent.vue";
 import AboutComponent from "@/components/AboutComponent.vue";
 import ContactComponent from "@/components/ContactComponent.vue";
 import MentionsLegalesComponent from "@/components/MentionsLegalesComponent.vue";
+import NotFoundComponent from "@/components/NotFoundComponent.vue"
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     name: "MentionsLegales",
     component: MentionsLegalesComponent,
   },
+  {
+    path: "/:PathMatch(.*)*",
+    name: "NotFound",
+    component: NotFoundComponent,
+  }
 ];
 
 const router = createRouter({
