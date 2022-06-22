@@ -161,7 +161,7 @@
             gap: 12px;
             &::before{
                 content: "";
-                background-image: url('@/assets/accueil/banner2.jpg');
+                background-image: url('@/assets/accueil/slider1.jpg');
                 position: absolute;
                 background-position: center;
                 background-size: cover;
@@ -206,7 +206,7 @@
         gap: 12px;
         &::before{
             content: "";
-            background-image: url('@/assets/accueil/banner1.png');
+            background-image: url('@/assets/accueil/slider2.jpg');
             position: absolute;
             background-position: center;
             background-size: cover;
