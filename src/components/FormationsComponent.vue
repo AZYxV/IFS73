@@ -59,6 +59,10 @@
                 </p>
             </div>
         </section>
+        <section class="section-tarif">
+            <h2>CATALOGUE DE FORMATIONS 2022</h2>
+            <img src="@/assets/formations/tarifs.png" alt="">
+        </section>
     </main>
 </template>
 
@@ -182,6 +186,18 @@ h2,h3{
     }
 }
 
+.section-tarif{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap-4;
+    
+    img{
+        width: clamp(5rem, 100%, 100%);
+        height: auto;
+    }
+}
+
 @media (min-width:768px){
     h1{
         font-size: 2rem;
@@ -223,6 +239,14 @@ h2,h3{
     .section-presentation,.section-blocs{
         padding: 0 5%;
     }
+
+    .section-tarif{
+        
+        img{
+            width: clamp(5rem, 90%, 100%);
+            height: auto;
+        }
+    }
 }
 
 @media (min-width:1440px){
@@ -233,6 +257,14 @@ h2,h3{
     .section-contact{
         img{
              width: clamp(5rem, 25%, 100%);
+        }
+    }
+
+    .section-tarif{
+        
+        img{
+            width: clamp(5rem, 80%, 100%);
+            height: auto;
         }
     }
 }
