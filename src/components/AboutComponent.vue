@@ -3,7 +3,7 @@
         <h1>A propos de moi...</h1>
         <section class="section-about">
             <div class="section-about__div">
-                <img class="img-profil" src="@/assets/about/profil.png" alt="">
+                <img class="img-profil" src="@/assets/about/Amandine-Lorenzo.png" alt="">
                 <h2>Amandine Lorenzo</h2>
                 <p>
                     Assistante de direction et formatrice bureautique depuis 2017, j’ai eu la chance de reprendre le 
@@ -64,6 +64,7 @@
             .img-profil{
                 width: 200px;
                 height: auto;
+                border-radius: 100px;
             }
             .img-femme{ 
                 display: none;
