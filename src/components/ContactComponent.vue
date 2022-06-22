@@ -62,15 +62,6 @@
 
     @import "@/scss/_variables.scss";
 
-    main{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: $gap-4;
-        padding: 4Rem 1rem;
-    }
-
     .section-title{
         display: flex;
         justify-content: center;

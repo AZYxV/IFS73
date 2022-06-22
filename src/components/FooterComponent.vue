@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer> 
         <section class="section-haut">
             <img class="img-logo" src="@/assets/newlogo.svg" alt="logo ifs73">
             <div class="section-haut__div">

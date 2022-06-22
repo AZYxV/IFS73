@@ -70,21 +70,8 @@
 
 @import "@/scss/variables";
 
-main{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: $gap-4;
-    padding: 4rem 1rem;
-}
-
 h1{
     font-size: 1.5rem;
-}
-
-h2,h3{
-    font-family: 'Righteous', cursive;
 }
 
 .section-microsoft{

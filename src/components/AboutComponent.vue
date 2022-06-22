@@ -1,6 +1,6 @@
 <template>
     <main>
-        <h1>A propos de moi...</h1>
+        <h1>A propos de moi...</h1> 
         <section class="section-about">
             <div class="section-about__div">
                 <img class="img-profil" src="@/assets/about/Amandine-Lorenzo.png" alt="">
@@ -26,22 +26,9 @@
 
 <style lang="scss" scoped>
     @import "@/scss/_variables.scss";
-
-    main{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        gap: $gap-4;
-        padding: 4rem 1rem;
-    }
     
     h1{
        font-size: 1.5rem;
-    }
-
-    h2{
-        font-family: 'Righteous', cursive;
     }
 
     .section-about{

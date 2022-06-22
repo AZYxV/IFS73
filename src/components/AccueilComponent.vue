@@ -1,5 +1,5 @@
 
-<template>
+<template> 
     <main>
         <agile :mobileFirst="true" :navButtons="false" :dots="false" :autoplay="true" :speed="1000">
             <div class="slide">
@@ -134,16 +134,20 @@
 
 @import "@/scss/_variables.scss";
 
-    .container{
+main{
+    padding: 0;
+}
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: $gap-4;
-        padding: 4Rem 1rem;
+.container{
 
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-4;
+    padding: 4rem 1rem;
+
+}
 
     .agile{
     width: 100%;
@@ -251,7 +255,6 @@
         justify-content: center;
         h1{
             font-size: 1.5rem;
-            font-weight: bold;
             margin-bottom: 1rem;
         }
     }
