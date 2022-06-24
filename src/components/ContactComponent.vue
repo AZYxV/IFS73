@@ -8,26 +8,42 @@
             <div class="section-form__particles">
                 <img src="@/assets/contact/particles.png" alt="#">
             </div>
-            <form class="section-form__form">
+            <form  ref="form" @submit.prevent="submitForm" class="section-form__form">
                 <div class="section-form__form__div">
                     <div class="section-form__form__div__name">
-                        <input type="text" id="nom" name="nom" placeholder="Nom" required>
-                        <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                        <span v-for="error in v$.firstName.$errors" :key="error.$uid">
+                            {{ error.$message }}
+                        </span>
+                        <span v-for="error in v$.lastName.$errors" :key="error.$uid">
+                            {{ error.$message }}
+                        </span>
+                    </div>
+                    <div class="section-form__form__div__name">
+                        <input v-model="formData.firstName" type="text" id="prenom" name="from_firstname" placeholder="Prénom">
+                        <input v-model="formData.lastName" type="text" id="nom" name="from_lastname" placeholder="Nom">
+                    </div>
+                    <span v-for="error in v$.contact.email.$errors" :key="error.$uid">
+                        {{ error.$message }}
+                    </span>
+                    <div>
+                        <input v-model="formData.contact.email" type="email" id="email" name="from_email" placeholder="exemple@ifs73.fr">
                     </div>
                     <div>
-                        <input type="email" id="email" name="email" placeholder="exemple@ifs73.fr" required>
+                        <span v-for="error in v$.message.$errors" :key="error.$uid">
+                            {{ error.$message }}
+                        </span>
                     </div>
                     <div>
-                        <textarea id="msg" name="msg" placeholder="Message.." required></textarea>
+                        <textarea v-model="formData.message" id="msg" name="from_message" placeholder="Message.."></textarea>
                     </div>
                     <div class="section-form__form__div__rgpd">
-                        <input type="checkbox" id="terms" name="terms" required>
+                        <input type="checkbox" id="terms" name="terms">
                         <label for="terms">J’autorise ce site à conserver mes données transmises via ce formulaire</label>
                     </div>
                     <div>
-                        <input type="submit" name="submit" id="submit" value="Envoyer">
+                        <input type="submit" name="send" id="submit" value="Envoyer">
                     </div>
-                </div>   
+                </div>
             </form>
         </section>
         <h2>Nous trouver</h2>
@@ -58,10 +74,67 @@
     </main>
 </template>
 
+<script>
+
+import { reactive } from 'vue' // "from '@vue/composition-api'" if you are using Vue 2.x
+import useVuelidate from '@vuelidate/core'
+import { required, email, helpers, minLength } from '@vuelidate/validators'
+import emailjs from 'emailjs-com'
+import {ref} from 'vue'
+
+export default {
+  setup () {
+    const form = ref(null);
+    const inputFieldReset = ref(null);
+
+    const formData = reactive({
+      firstName: '',
+      lastName: '',
+      contact: {
+        email: ''
+      },
+      message: ''
+    })
+    const rules = {
+      firstName: { required: helpers.withMessage('Champ obligatoire', required), minLength: minLength(2) }, // Matches state.firstName
+      lastName: { required: helpers.withMessage('Champ obligatoire', required), minLength: minLength(2) }, // Matches state.lastName
+      contact: {
+        email: { required: helpers.withMessage('Champ obligatoire', required), email: helpers.withMessage('Adresse email non valide', email) } // Matches state.contact.email
+      },
+      message: { required: helpers.withMessage('Champ obligatoire', required) }
+    }
+
+    const submitForm = async () => {
+        const result = await v$.value.$validate();
+        if(result){
+            emailjs.sendForm('service_zwezsm9', 'template_lpeadhv', form.value, 'Ss8zo6HnbADbIn_47')
+        .then(() => {
+          alert('Message sent!')
+          inputFieldReset.value = " ";
+        }, (error) => {
+          alert('Message not sent', error);
+        });
+        } else{
+            console.log('none');
+        }
+    };
+    
+
+    const v$ = useVuelidate(rules, formData);
+
+    return { formData, v$, submitForm, form}
+  }
+}
+
+</script>
+
 <style lang="scss" scoped>
 
     @import "@/scss/_variables.scss";
 
+    span{
+        color: #E2003F;
+    }
     .section-title{
         display: flex;
         justify-content: center;
