@@ -198,6 +198,7 @@ export default {
                     &:hover{
                         background: $primary-color;
                         color: $secondary-color;
+                        cursor: pointer;
                     }
                 }
 

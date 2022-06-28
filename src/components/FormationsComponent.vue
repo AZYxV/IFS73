@@ -4,15 +4,15 @@
         <section class="section-microsoft">
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">
-                <button>Découvrir</button>
+                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>
             </div>
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
-                <button>Découvrir</button>               
+                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>               
             </div>
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
-                <button>Découvrir</button>
+                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>
             </div>
         </section>
         
@@ -91,17 +91,19 @@ h1{
         height: auto;
     }
 
-    &__item button{
+    &__item a{
         color: white;
         border-radius: $radius-12;
         padding: .5rem 1rem;
         background: $secondary-color;
         border: 1px solid $secondary-color;
+        text-decoration: none;
         transition: all 0.2s ease-in-out;
     
         &:hover{
             background: $primary-color;
             color: $secondary-color;
+            cursor: pointer;
         }
     }
 }   
