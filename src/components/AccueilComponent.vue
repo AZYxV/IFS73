@@ -26,19 +26,19 @@
         <section class="section-valeurs">
             <div class="section-valeurs__item">
                 <img src="@/assets/accueil/map.svg" alt="logo carte">
-                <p>Proximité</p>
+                <p>PROXIMITE</p>
             </div>
             <div class="section-valeurs__item">
                 <img src="@/assets/accueil/message.svg" alt="logo bulles messages">
-                <p>Écoute</p>
+                <p>ECOUTE</p>
             </div>
             <div class="section-valeurs__item">
                 <img src="@/assets/accueil/toolset.svg" alt="logo engrenages">
-                <p>Sur mesure</p>
+                <p>SUR MESURE</p>
             </div>
             <div class="section-valeurs__item">
                 <img src="@/assets/accueil/woman.svg" alt="logo visage femme souriante">
-                <p>Sourire</p>
+                <p>SOURIRE</p>
             </div>
         </section>
         <section class="section-formations">
@@ -52,18 +52,32 @@
             <div class="section-paragraphe__bloc section-paragraphe__right">
                 <img src="@/assets/accueil/illustationdeux.png" alt="Illustration homme présentation">
                 <div class="section-paragraphe__bloc_div">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit.</h3>
-                    <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ipsum dolor sit amet</p>
+                    <h3>Développez vos performances grâce à nos formations bureautiques</h3>
+                    <p>IFS vous propose une multitude de formations bureautiques afin de répondre au mieux aux
+                    besoins de ses clients dans le but d'acquérir des compétences professionnelles solides.
+                    </p>
                 </div> 
             </div>
             <div class="section-paragraphe__bloc section-paragraphe__left">
                 <div class="section-paragraphe__bloc_div">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit.</h3>
-                    <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ipsum dolor sit amet</p>
+                    <h3>Une équipe entièrement a votre écoute</h3>
+                    <p>L'équipe IFS vous garantit un accompagnement et une écoute sur mesure afin de mettre
+                        toutes les chances de votre côté dans l'apprentissage des logiciels bureautiques car notre priorité c'est votre réussite. 
+                    </p>
                 </div>
                 <img src="@/assets/accueil/illustationtrois.png" alt="Illustration homme présentation">
+            </div>
+        </section>
+        <section class="section-satisfaction">
+            <div class="section-satisfaction__div">
+                <h3>Satisfaction des stagiaires</h3>
+                <p class="nombre">0%</p>
+                <p>En 2022</p>
+            </div>
+            <div class="section-satisfaction__div">
+                <h3>Taux de recommandations</h3>
+                <p class="nombre">0%</p>
+                <p>Pour les stagiaires</p>
             </div>
         </section>
         <h2 class="h2-confiance">Ils nous font confiance</h2>
@@ -121,18 +135,19 @@
 
 <script>
     import { VueAgile } from 'vue-agile';
-
-
+    
     export default {
         components: {
         agile: VueAgile,
         }
     }
+   
 </script>
 
 <style lang="scss" scoped>
 
 @import "@/scss/_variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Righteous&display=swap');
 
 main{
     padding: 0;
@@ -332,6 +347,31 @@ main{
             }
         }
     }
+
+    .section-satisfaction{
+        display: flex;
+        justify-content: center;
+        gap: 8rem;
+
+        &__div{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2rem;
+            p{
+                font-family: 'Righteous', cursive;
+            }
+
+            .nombre{
+                font-size: 4rem;
+                background: $primary-color;
+                padding: 2rem 1rem;
+                border-radius: $radius-24;
+                box-shadow: $box-shadow-bottom;
+            }
+        }
+    }
+
 
     .h2-confiance{
         font-size: 1.5rem;
