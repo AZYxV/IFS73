@@ -10,38 +10,37 @@
             </div>
             <form  ref="form" @submit.prevent="submitForm" class="section-form__form">
                 <div class="section-form__form__div">
+                    <div id="success"></div>
                     <div class="section-form__form__div__name">
+                        <input v-model="formData.firstName" type="text" id="prenom" name="from_firstname" placeholder="Prénom">
+                        <input v-model="formData.lastName" type="text" id="nom" name="from_lastname" placeholder="Nom">
+                    </div>
+                    <div>
+                        <input v-model="formData.contact.email" type="email" id="email" name="from_email" placeholder="exemple@ifs73.fr">
+                    </div>
+                    <div>
+                        <textarea v-model="formData.message" id="msg" name="from_message" placeholder="Message.."></textarea>
+                    </div>
+                    <div class="section-form__form__div__rgpd">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">J’autorise ce site à conserver mes données transmises via ce formulaire</label>
+                    </div>
+                    <div>
+                        <input type="submit" name="send" id="submit" value="Envoyer">
+                    </div>
+                    <div class="section-form__form__div_error">
                         <span v-for="error in v$.firstName.$errors" :key="error.$uid">
                             {{ error.$message }}
                         </span>
                         <span v-for="error in v$.lastName.$errors" :key="error.$uid">
                             {{ error.$message }}
                         </span>
-                    </div>
-                    <div class="section-form__form__div__name">
-                        <input v-model="formData.firstName" type="text" id="prenom" name="from_firstname" placeholder="Prénom">
-                        <input v-model="formData.lastName" type="text" id="nom" name="from_lastname" placeholder="Nom">
-                    </div>
-                    <span v-for="error in v$.contact.email.$errors" :key="error.$uid">
-                        {{ error.$message }}
-                    </span>
-                    <div>
-                        <input v-model="formData.contact.email" type="email" id="email" name="from_email" placeholder="exemple@ifs73.fr">
-                    </div>
-                    <div>
+                        <span v-for="error in v$.contact.email.$errors" :key="error.$uid">
+                            {{ error.$message }}
+                        </span>
                         <span v-for="error in v$.message.$errors" :key="error.$uid">
                             {{ error.$message }}
                         </span>
-                    </div>
-                    <div>
-                        <textarea v-model="formData.message" id="msg" name="from_message" placeholder="Message.."></textarea>
-                    </div>
-                    <div class="section-form__form__div__rgpd">
-                        <input type="checkbox" id="terms" name="terms">
-                        <label for="terms">J’autorise ce site à conserver mes données transmises via ce formulaire</label>
-                    </div>
-                    <div>
-                        <input type="submit" name="send" id="submit" value="Envoyer">
                     </div>
                 </div>
             </form>
@@ -96,12 +95,12 @@ export default {
       message: ''
     })
     const rules = {
-      firstName: { required: helpers.withMessage('Champ obligatoire', required), minLength: minLength(2) }, // Matches state.firstName
-      lastName: { required: helpers.withMessage('Champ obligatoire', required), minLength: minLength(2) }, // Matches state.lastName
+      firstName: { required: helpers.withMessage('❌ Veuillez compléter le champ "Prénom"', required), minLength: helpers.withMessage(({$params}) => `❌ Votre prénom doit contenir ${$params.min} caractères minimum`,minLength(2)) },
+      lastName: { required: helpers.withMessage('❌ Veuillez compléter le champ "Nom', required), minLength: helpers.withMessage(({$params}) => `❌ Votre nom doit contenir ${$params.min} caractères minimum`,minLength(2)) },
       contact: {
-        email: { required: helpers.withMessage('Champ obligatoire', required), email: helpers.withMessage('Adresse email non valide', email) } // Matches state.contact.email
+        email: { required: helpers.withMessage('❌ Veuillez renseigner votre email', required), email: helpers.withMessage('❌ Adresse email non valide', email) }, // Matches state.contact.email
       },
-      message: { required: helpers.withMessage('Champ obligatoire', required) }
+      message: { required: helpers.withMessage('❌ Veuillez rédiger votre texte', required) }
     }
 
     const submitForm = async () => {
@@ -109,10 +108,10 @@ export default {
         if(result){
             emailjs.sendForm('service_zwezsm9', 'template_lpeadhv', form.value, 'Ss8zo6HnbADbIn_47')
         .then(() => {
-          alert('Message sent!')
+          document.getElementById("success").innerHTML = "<p>&#9989; Votre message a été envoyé avec succès !<br/>Vous serez recontacté(e) prochainement par email</p>";
           inputFieldReset.value = " ";
         }, (error) => {
-          alert('Message not sent', error);
+          alert('Message non en', error);
         });
         } else{
             console.log('none');
@@ -122,7 +121,7 @@ export default {
 
     const v$ = useVuelidate(rules, formData);
 
-    return { formData, v$, submitForm, form}
+    return { formData, v$, submitForm, form, inputFieldReset}
   }
 }
 
@@ -132,9 +131,6 @@ export default {
 
     @import "@/scss/_variables.scss";
 
-    span{
-        color: #E2003F;
-    }
     .section-title{
         display: flex;
         justify-content: center;
@@ -156,10 +152,24 @@ export default {
             box-shadow: $box-shadow-bottom;
             border-radius: $radius-24;
             padding: 2rem 1rem;
+            span{
+                color: #E2003F;
+                font-size: 1rem;
+            }
             &__div{
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
+                #success{
+                    color: rgb(134, 223, 0);
+                }
+                &_error{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 4px;
+                }
                 input[type="text"],input[type="email"],textarea{
                     border: 2px solid lightgrey;
                     border-radius: $radius-12;
