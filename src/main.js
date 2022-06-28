@@ -6,4 +6,5 @@ import VueAgile from 'vue-agile'
 createApp(App)
   .use(VueAgile)
 
+
 createApp(App).use(router).mount('#app')
