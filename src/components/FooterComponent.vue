@@ -7,8 +7,8 @@
                 <ul class="section-haut__div__ul">
                     <li class="li-hover"><router-link class="router" to="/">Accueil</router-link></li>
                     <li class="li-hover"><router-link class="router" to="/formations">Formations</router-link></li>
-                    <li class="li-hover"><router-link class="router" to="/contact">Contact</router-link></li>
                     <li class="li-hover"><router-link class="router" to="/about">A propos</router-link></li>
+                    <li class="li-hover"><router-link class="router" to="/contact">Contact</router-link></li>
                 </ul>
             </div>
             <div class="section-haut__div">
