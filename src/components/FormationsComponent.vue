@@ -60,7 +60,7 @@
             </div>
         </section>
         <section class="section-tarif">
-            <h2>CATALOGUE DE FORMATIONS 2022</h2>
+            <h2>Catalogue de Formations 2022</h2>
             <img src="@/assets/formations/tarifs.png" alt="">
         </section>
     </main>
@@ -137,6 +137,7 @@ h1{
       flex-direction: column;
       align-items: center;
       gap: 12px;
+      
       h2{
         font-size: 1.5rem;
       }
@@ -185,6 +186,10 @@ h1{
         width: clamp(5rem, 100%, 100%);
         height: auto;
     }
+
+    h2{
+        font-size: 1.5rem;
+    }
 }
 
 @media (min-width:768px){
@@ -205,6 +210,12 @@ h1{
             width: 150px;
         }
     }
+    .section-tarif{
+
+    h2{
+        font-size: 2rem;
+    }
+}
 
     .section-contact{
         img{

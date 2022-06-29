@@ -75,7 +75,7 @@
                 <p>En 2022</p>
             </div>
             <div class="section-satisfaction__div">
-                <h3>Taux de recommandations</h3>
+                <h3>Taux de recommandation</h3>
                 <p class="nombre">0%</p>
                 <p>Pour les stagiaires</p>
             </div>
@@ -151,6 +151,7 @@
 
 main{
     padding: 0;
+    gap: 0;
 }
 
 .container{
@@ -351,13 +352,15 @@ main{
     .section-satisfaction{
         display: flex;
         justify-content: center;
-        gap: 8rem;
+        flex-direction: column;
+        gap:$gap-4;
 
         &__div{
             display: flex;
             justify-content: center;
             flex-direction: column;
             gap: 2rem;
+            
             p{
                 font-family: 'Righteous', cursive;
             }
@@ -456,6 +459,9 @@ $animationSpeed: 40s;
 
     @media (min-width: 768px) {
 
+        .section-satisfaction{
+        flex-direction: row;
+        }
         .slide{
             &__slider{
                 height: 45vh;
@@ -580,6 +586,10 @@ $animationSpeed: 40s;
             &__bloc{
             gap: 8rem;
             }
+        }
+
+         .section-satisfaction{
+            gap: 8rem;
         }
 
         .carousel__slider {
