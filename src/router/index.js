@@ -1,41 +1,41 @@
 import { createWebHistory, createRouter } from "vue-router";
-import AccueilComponent from "@/components/AccueilComponent.vue";
-import FormationsComponent from "@/components/FormationsComponent.vue";
-import AboutComponent from "@/components/AboutComponent.vue";
-import ContactComponent from "@/components/ContactComponent.vue";
-import MentionsLegalesComponent from "@/components/MentionsLegalesComponent.vue";
-import NotFoundComponent from "@/components/NotFoundComponent.vue"
+import AccueilView from "@/views/AccueilView.vue";
+import FormationsView from "@/views/FormationsView.vue";
+import AboutView from "@/views/AboutView.vue";
+import ContactView from "@/views/ContactView.vue";
+import MentionsLegalesView from "@/views/MentionsLegalesView.vue";
+import NotFoundView from "@/views/NotFoundView.vue"
 
 const routes = [
   {
     path: "/",
     name: "Accueil",
-    component: AccueilComponent,
+    component: AccueilView,
   },
   {
     path: "/formations",
     name: "Formations",
-    component: FormationsComponent,
+    component: FormationsView,
   },
   {
     path: "/about",
     name: "About",
-    component: AboutComponent,
+    component: AboutView,
   },
   {
     path: "/contact",
     name: "Contact",
-    component: ContactComponent,
+    component: ContactView,
   },
   {
     path: "/mentions-legales",
     name: "MentionsLegales",
-    component: MentionsLegalesComponent,
+    component: MentionsLegalesView,
   },
   {
     path: "/:PathMatch(.*)*",
     name: "NotFound",
-    component: NotFoundComponent,
+    component: NotFoundView,
   }
 ];
 
