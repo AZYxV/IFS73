@@ -22,7 +22,10 @@
             </div>
         </section>
         <section class="section-bas">
-            <p class="section-bas__p"><router-link class="mentions" to="/mentions-legales">Mentions légales</router-link> - © {{currentYear}} IFS73</p>
+            <p class="section-bas__p"><router-link class="mentions" to="/mentions-legales">Mentions légales</router-link> 
+            - © {{currentYear}} IFS73
+            - <router-link class="mentions" to="/CGV">CGV</router-link>
+            </p>
         </section>
     </footer>
 </template>
