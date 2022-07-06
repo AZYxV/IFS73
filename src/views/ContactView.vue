@@ -12,7 +12,7 @@
                 <div class="section-form__form__div">
                     <div id="success"></div>
                     <div class="section-form__form__div__name">
-                        <input v-model="formData.firstName" type="text" id="prenom" name="from_firstname" placeholder="Prénom">
+                        <input v-model="formData.firstName" type="text" id="prenom" name="from_firstname" placeholder="Prénom" :value="inputFieldReset">
                         <input v-model="formData.lastName" type="text" id="nom" name="from_lastname" placeholder="Nom">
                     </div>
                     <div>
@@ -22,7 +22,7 @@
                         <textarea v-model="formData.message" id="msg" name="from_message" placeholder="Message.."></textarea>
                     </div>
                     <div class="section-form__form__div__rgpd">
-                        <input type="checkbox" id="terms" name="terms" required>
+                        <input v-model="formData.rgpd" type="checkbox" id="terms" name="terms">
                         <label for="terms">J’autorise ce site à conserver mes données transmises via ce formulaire</label>
                     </div>
                     <div>
@@ -39,6 +39,9 @@
                             {{ error.$message }}
                         </span>
                         <span v-for="error in v$.message.$errors" :key="error.$uid">
+                            {{ error.$message }}
+                        </span>
+                        <span v-for="error in v$.rgpd.$errors" :key="error.$uid">
                             {{ error.$message }}
                         </span>
                     </div>
@@ -77,12 +80,13 @@
 
 import { reactive } from 'vue' // "from '@vue/composition-api'" if you are using Vue 2.x
 import useVuelidate from '@vuelidate/core'
-import { required, email, helpers, minLength } from '@vuelidate/validators'
+import { required, email, helpers, minLength, sameAs } from '@vuelidate/validators'
 import emailjs from 'emailjs-com'
 import {ref} from 'vue'
 
 export default {
   setup () {
+
     const form = ref(null);
     const inputFieldReset = ref(null);
 
@@ -92,7 +96,8 @@ export default {
       contact: {
         email: ''
       },
-      message: ''
+      message: '',
+      rgpd: ''
     })
     const rules = {
       firstName: { required: helpers.withMessage('❌ Veuillez compléter le champ "Prénom"', required), minLength: helpers.withMessage(({$params}) => `❌ Votre prénom doit contenir ${$params.min} caractères minimum`,minLength(2)) },
@@ -100,7 +105,8 @@ export default {
       contact: {
         email: { required: helpers.withMessage('❌ Veuillez renseigner votre email', required), email: helpers.withMessage('❌ Adresse email non valide', email) }, // Matches state.contact.email
       },
-      message: { required: helpers.withMessage('❌ Veuillez rédiger votre texte', required) }
+      message: { required: helpers.withMessage('❌ Veuillez rédiger votre texte', required) },
+      rgpd: { sameAs: helpers.withMessage('❌ Veuillez cocher la case des RGPD', sameAs(true)) }
     }
 
     const submitForm = async () => {
@@ -109,7 +115,7 @@ export default {
             emailjs.sendForm('service_zwezsm9', 'template_lpeadhv', form.value, 'Ss8zo6HnbADbIn_47')
         .then(() => {
           document.getElementById("success").innerHTML = "<p>&#9989; Votre message a été envoyé avec succès !<br/>Vous serez recontacté(e) prochainement par email</p>";
-          inputFieldReset.value = " ";
+          inputFieldReset.value = "";
         }, (error) => {
           alert('Message non en', error);
         });
