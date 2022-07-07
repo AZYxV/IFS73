@@ -4,16 +4,17 @@
         <section class="section-microsoft">
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">
-                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>
-            </div>
-            <div class="section-microsoft__item">
-                <img src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
-                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>               
+                <p>Word</p>
             </div>
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
-                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>
+                <p>Powerpoint</p>
             </div>
+            <div class="section-microsoft__item">
+                <img src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
+                <p>Excel</p>                         
+            </div>
+            
         </section>
         
         <section class="section-presentation">
@@ -61,7 +62,14 @@
         </section>
         <section class="section-tarif">
             <h2>Catalogue de Formations 2022</h2>
-            <img src="@/assets/formations/tarifs.png" alt="">
+            <a class="pdf" target="_blank" href="https://drive.google.com/file/d/12jrPa6-Y1Yqq7Hf34GUMSnfb-nVCvGJL/view?usp=sharing" download>Découvrir le Catalogue</a>
+            <img src="@/assets/formations/tarifs.png" alt="Tableau des tarifs de formations bureautiques">
+            <h2>Formations</h2>
+            <div class="section-tarif__div-lien">
+                <a target="_blank" href="@/assets/formations/Programme_de_formation_14H_Initiation_Word.pdf" download>Initiation Word</a>
+                <a target="_blank" href="@/assets/formations/Programme_de_formation_21H_Initiation_Excel.pdf" download>Initiation Excel</a>
+                <a target="_blank" href="@/assets/formations/Programme_de_formation_21H_Perfectionnement_Excel.pdf" download>Perfectionnement Excel</a>
+            </div>
         </section>
     </main>
 </template>
@@ -83,6 +91,7 @@ h1{
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         gap: 12px;
     }
 
@@ -91,20 +100,16 @@ h1{
         height: auto;
     }
 
-    &__item a{
+    &__item p{
         color: white;
         border-radius: $radius-12;
         padding: .5rem 1rem;
+        width: 150px;
+        height: auto;
         background: $secondary-color;
         border: 1px solid $secondary-color;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
-    
-        &:hover{
-            background: $primary-color;
-            color: $secondary-color;
-            cursor: pointer;
-        }
     }
 }   
 
@@ -181,14 +186,37 @@ h1{
     flex-direction: column;
     align-items: center;
     gap: $gap-4;
+
+    a{
+        text-decoration: none;
+        color: white;
+        border-radius: $radius-12;
+        padding: .5rem 1rem;
+        background: $secondary-color;
+        border: 1px solid $secondary-color;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+
+    a:hover{
+            background: $primary-color;
+            color: $secondary-color;
+        }
     
     img{
+        display: none;
         width: clamp(5rem, 100%, 100%);
         height: auto;
     }
 
     h2{
         font-size: 1.5rem;
+    }
+
+    &__div-lien{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
@@ -215,6 +243,14 @@ h1{
     h2{
         font-size: 2rem;
     }
+    
+    img{
+        display: block;
+    }
+
+    .pdf{
+        display: none;
+    }
 }
 
     .section-contact{
@@ -236,7 +272,7 @@ h1{
 }
 
 @media (min-width:1024px){
-    .section-presentation,.section-blocs{
+    .section-microsoft,.section-presentation,.section-blocs{
         padding: 0 5%;
     }
 
@@ -250,7 +286,7 @@ h1{
 }
 
 @media (min-width:1440px){
-    .section-presentation,.section-blocs{
+    .section-microsoft,.section-presentation,.section-blocs{
         padding: 0 10%;
     }
 
