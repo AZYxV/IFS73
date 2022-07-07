@@ -26,19 +26,19 @@
         <section class="section-valeurs">
             <div class="section-valeurs__item">
                 <img src="@/assets/accueil/map.svg" alt="logo carte">
-                <p>PROXIMITE</p>
+                <h4>Proximité</h4>
             </div>
             <div class="section-valeurs__item">
                 <img src="@/assets/accueil/message.svg" alt="logo bulles messages">
-                <p>ECOUTE</p>
+                <h4>Ecoute</h4>
             </div>
             <div class="section-valeurs__item">
                 <img src="@/assets/accueil/toolset.svg" alt="logo engrenages">
-                <p>SUR MESURE</p>
+                <h4>Sur Mesure</h4>
             </div>
             <div class="section-valeurs__item">
                 <img src="@/assets/accueil/woman.svg" alt="logo visage femme souriante">
-                <p>SOURIRE</p>
+                <h4>Sourire</h4>
             </div>
         </section>
         <section class="section-formations">
@@ -69,15 +69,29 @@
             </div>
         </section>
         <section class="section-satisfaction">
-            <div class="section-satisfaction__div">
-                <h3>Satisfaction des stagiaires</h3>
-                <p class="nombre">0%</p>
-                <p>En 2022</p>
+            <div class="section-satisfaction__div-double">
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Stagiaires formés</h3>
+                    <p class="nombre">0</p>
+                    <p>Depuis<br>L'année 2022</p>
+                </div>
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Taux d'assuidité</h3>
+                    <p class="nombre">0</p>
+                    <p>Note<br>sur 100</p>
+                </div>
             </div>
-            <div class="section-satisfaction__div">
-                <h3>Taux de recommandation</h3>
-                <p class="nombre">0%</p>
-                <p>Pour les stagiaires</p>
+            <div class="section-satisfaction__div-double">
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Satisfaction globale</h3>
+                    <p class="nombre">0</p>
+                    <p>Note<br>sur 100</p>
+                </div>
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>100% des stagiaires</h3>
+                    <p class="nombre">0</p>
+                    <p>Recommandent<br>la formation</p>
+                </div>
             </div>
         </section>
         <h2 class="h2-confiance">Ils nous font confiance</h2>
@@ -353,24 +367,35 @@ main{
         display: flex;
         justify-content: center;
         flex-direction: column;
-        gap:$gap-4;
+        gap:2rem;
 
-        &__div{
-            display: flex;
+        &__div-double{
+             display: flex;
             justify-content: center;
+            align-items: center;
             flex-direction: column;
+           
             gap: 2rem;
-            
-            p{
-                font-family: 'Righteous', cursive;
-            }
 
-            .nombre{
-                font-size: 4rem;
-                background: $primary-color;
-                padding: 2rem 1rem;
-                border-radius: $radius-24;
-                box-shadow: $box-shadow-bottom;
+            &__div-bloc{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+                padding: 0 3rem;
+            
+                p{
+                    font-family: 'Righteous', cursive;
+                }
+
+                .nombre{
+                    font-size: 4rem;
+                    background: $primary-color;
+                    padding: 2rem 3rem;
+                    border-radius: $radius-24;
+                    box-shadow: $box-shadow-bottom;
+                }
             }
         }
     }
@@ -460,7 +485,7 @@ $animationSpeed: 40s;
     @media (min-width: 768px) {
 
         .section-satisfaction{
-        flex-direction: row;
+            flex-direction: row;
         }
         .slide{
             &__slider{
@@ -588,8 +613,10 @@ $animationSpeed: 40s;
             }
         }
 
-         .section-satisfaction{
-            gap: 8rem;
+        .section-satisfaction{
+            &__div-double{
+                flex-direction: row; 
+            }
         }
 
         .carousel__slider {
