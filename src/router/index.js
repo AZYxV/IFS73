@@ -4,7 +4,9 @@ import FormationsView from "@/views/FormationsView.vue";
 import AboutView from "@/views/AboutView.vue";
 import ContactView from "@/views/ContactView.vue";
 import MentionsLegalesView from "@/views/MentionsLegalesView.vue";
+import CgvView from "@/views/CgvView.vue";
 import NotFoundView from "@/views/NotFoundView.vue"
+
 
 const routes = [
   {
@@ -31,6 +33,11 @@ const routes = [
     path: "/mentions-legales",
     name: "MentionsLegales",
     component: MentionsLegalesView,
+  },
+  {
+    path: "/cgv",
+    name: "CGV",
+    component: CgvView,
   },
   {
     path: "/:PathMatch(.*)*",
