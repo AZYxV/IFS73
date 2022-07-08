@@ -1,20 +1,31 @@
+<script>
+import { defineComponent } from 'vue';
+import Vue3autocounter from 'vue3-autocounter';
+
+export default defineComponent({
+  name: 'vueGou',
+  components: {
+    'vue3-autocounter': Vue3autocounter
+  }
+});   
+</script>
+
 <template>
     <main>
         <h1>Decouvrez nos formations</h1>
         <section class="section-microsoft">
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">
-                <p>Word</p>
-            </div>
-            <div class="section-microsoft__item">
-                <img src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
-                <p>Powerpoint</p>
+                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>
             </div>
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
-                <p>Excel</p>                         
+                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>               
             </div>
-            
+            <div class="section-microsoft__item">
+                <img src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
+                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>
+            </div>
         </section>
         
         <section class="section-presentation">
@@ -32,7 +43,32 @@
                 </p>
             </div>
         </section>
-        
+        <section class="section-satisfaction">
+            <div class="section-satisfaction__div-double">
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Stagiaires formés</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Depuis<br>L'année 2022</p>
+                </div>
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Taux d'assuidité</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Note<br>sur 100</p>
+                </div>
+            </div>
+            <div class="section-satisfaction__div-double">
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Satisfaction globale</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Note<br>sur 100</p>
+                </div>
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>100% des stagiaires</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Recommandent<br>la formation</p>
+                </div>
+            </div>
+        </section>
         <section class="section-contact">
             <img src="@/assets/formations/femme_formation.png" alt="illutration femme formation">
             <div class="section-contact__div">
@@ -62,17 +98,12 @@
         </section>
         <section class="section-tarif">
             <h2>Catalogue de Formations 2022</h2>
-            <a class="pdf" target="_blank" href="https://drive.google.com/file/d/12jrPa6-Y1Yqq7Hf34GUMSnfb-nVCvGJL/view?usp=sharing" download>Découvrir le Catalogue</a>
-            <img src="@/assets/formations/tarifs.png" alt="Tableau des tarifs de formations bureautiques">
-            <h2>Formations</h2>
-            <div class="section-tarif__div-lien">
-                <a target="_blank" href="@/assets/formations/Programme_de_formation_14H_Initiation_Word.pdf" download>Initiation Word</a>
-                <a target="_blank" href="@/assets/formations/Programme_de_formation_21H_Initiation_Excel.pdf" download>Initiation Excel</a>
-                <a target="_blank" href="@/assets/formations/Programme_de_formation_21H_Perfectionnement_Excel.pdf" download>Perfectionnement Excel</a>
-            </div>
+            <img src="@/assets/formations/tarifs.png" alt="">
         </section>
     </main>
 </template>
+
+
 
 <style lang="scss" scoped>
 
@@ -91,7 +122,6 @@ h1{
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
         gap: 12px;
     }
 
@@ -100,16 +130,20 @@ h1{
         height: auto;
     }
 
-    &__item p{
+    &__item a{
         color: white;
         border-radius: $radius-12;
         padding: .5rem 1rem;
-        width: 150px;
-        height: auto;
         background: $secondary-color;
         border: 1px solid $secondary-color;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
+    
+        &:hover{
+            background: $primary-color;
+            color: $secondary-color;
+            cursor: pointer;
+        }
     }
 }   
 
@@ -125,6 +159,44 @@ h1{
         gap: 12px;
     }
 }
+
+.section-satisfaction{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap:2rem;
+
+        &__div-double{
+             display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+
+            &__div-bloc{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+                width: 220px;
+                height: 300px;
+                background: $primary-color;
+                border-radius: $radius-24;
+                box-shadow: $box-shadow-bottom;
+            
+                p{
+                    font-family: 'Righteous', cursive;
+                }
+
+                .nombre{
+                    font-size: 4rem;
+                   
+                }
+            }
+        }
+    }
 
 .section-contact{
     display: flex;
@@ -186,37 +258,14 @@ h1{
     flex-direction: column;
     align-items: center;
     gap: $gap-4;
-
-    a{
-        text-decoration: none;
-        color: white;
-        border-radius: $radius-12;
-        padding: .5rem 1rem;
-        background: $secondary-color;
-        border: 1px solid $secondary-color;
-        text-decoration: none;
-        transition: all 0.2s ease-in-out;
-    }
-
-    a:hover{
-            background: $primary-color;
-            color: $secondary-color;
-        }
     
     img{
-        display: none;
         width: clamp(5rem, 100%, 100%);
         height: auto;
     }
 
     h2{
         font-size: 1.5rem;
-    }
-
-    &__div-lien{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
     }
 }
 
@@ -240,18 +289,19 @@ h1{
     }
     .section-tarif{
 
-    h2{
-        font-size: 2rem;
-    }
-    
-    img{
-        display: block;
+        h2{
+            font-size: 2rem;
+        }
     }
 
-    .pdf{
-        display: none;
+    .section-satisfaction{
+        flex-direction: row;
+        gap:6rem;
+
+        &__div-double{
+            gap: 6rem;
+        }
     }
-}
 
     .section-contact{
         img{
@@ -272,9 +322,17 @@ h1{
 }
 
 @media (min-width:1024px){
-    .section-microsoft,.section-presentation,.section-blocs{
+    .section-presentation,.section-blocs{
         padding: 0 5%;
     }
+
+    .section-satisfaction{
+            gap:2rem;
+            &__div-double{
+                flex-direction: row;
+                gap:2rem; 
+            }
+        }
 
     .section-tarif{
         
@@ -286,7 +344,7 @@ h1{
 }
 
 @media (min-width:1440px){
-    .section-microsoft,.section-presentation,.section-blocs{
+    .section-presentation,.section-blocs{
         padding: 0 10%;
     }
 
