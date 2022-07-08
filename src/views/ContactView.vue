@@ -12,21 +12,25 @@
                 <div class="section-form__form__div">
                     <div id="success"></div>
                     <div class="section-form__form__div__name">
-                        <input v-model="formData.firstName" type="text" id="prenom" name="from_firstname" placeholder="Prénom">
-                        <input v-model="formData.lastName" type="text" id="nom" name="from_lastname" placeholder="Nom">
+                        <input v-model="formData.firstName" type="text" id="input" name="from_firstname" placeholder="Prénom*">
+                        <input v-model="formData.lastName" type="text" id="nom" name="from_lastname" placeholder="Nom*">
                     </div>
                     <div>
-                        <input v-model="formData.contact.email" type="email" id="email" name="from_email" placeholder="exemple@ifs73.fr">
+                        <input v-model="formData.email" type="email" id="email" name="from_email" placeholder="Email*">
                     </div>
                     <div>
-                        <textarea v-model="formData.message" id="msg" name="from_message" placeholder="Message.."></textarea>
+                        <textarea v-model="formData.message" id="msg" name="from_message" placeholder="Message*"></textarea>
                     </div>
                     <div class="section-form__form__div__rgpd">
-                        <input type="checkbox" id="terms" name="terms" required>
+                        <input v-model="formData.rgpd" type="checkbox" id="terms" name="terms">
                         <label for="terms">J’autorise ce site à conserver mes données transmises via ce formulaire</label>
+                    </div>
+                    <div id="recaptcha">
+                        <vue-recaptcha theme="light" size="normal" :tabindex="0" @widgetId="recaptchaWidget = $event" @verify="callbackVerify($event)" @expired="callbackExpired()" @fail="callbackFail()"/>
                     </div>
                     <div>
                         <input type="submit" name="send" id="submit" value="Envoyer">
+                        <input type="reset" name="reset" id="reset" value="Annuler">
                     </div>
                     <div class="section-form__form__div_error">
                         <span v-for="error in v$.firstName.$errors" :key="error.$uid">
@@ -35,10 +39,13 @@
                         <span v-for="error in v$.lastName.$errors" :key="error.$uid">
                             {{ error.$message }}
                         </span>
-                        <span v-for="error in v$.contact.email.$errors" :key="error.$uid">
+                        <span v-for="error in v$.email.$errors" :key="error.$uid">
                             {{ error.$message }}
                         </span>
                         <span v-for="error in v$.message.$errors" :key="error.$uid">
+                            {{ error.$message }}
+                        </span>
+                        <span v-for="error in v$.rgpd.$errors" :key="error.$uid">
                             {{ error.$message }}
                         </span>
                     </div>
@@ -77,42 +84,62 @@
 
 import { reactive } from 'vue' // "from '@vue/composition-api'" if you are using Vue 2.x
 import useVuelidate from '@vuelidate/core'
-import { required, email, helpers, minLength } from '@vuelidate/validators'
+import { required, email, helpers, minLength, sameAs } from '@vuelidate/validators'
 import emailjs from 'emailjs-com'
+import { VueRecaptcha, useRecaptcha } from "vue3-recaptcha-v2"
 import {ref} from 'vue'
 
 export default {
+  name: "recaptchaTest",
+  components: { VueRecaptcha },
   setup () {
+
+    const { resetRecaptcha } = useRecaptcha();
+      const recaptchaWidget = ref(null);
+
+      const callbackVerify = (response) => {
+        console.log(response);
+      };
+      const callbackExpired = () => {
+        console.log("expired!");
+      };
+      const callbackFail = () => {
+        console.log("fail");
+      };
+      // Reset Recaptcha action
+      const actionReset = () => {
+        resetRecaptcha(recaptchaWidget.value);
+      };
+
     const form = ref(null);
-    const inputFieldReset = ref(null);
 
     const formData = reactive({
       firstName: '',
       lastName: '',
-      contact: {
-        email: ''
-      },
-      message: ''
+      email: '',
+      message: '',
+      rgpd: ''
     })
+
     const rules = {
       firstName: { required: helpers.withMessage('❌ Veuillez compléter le champ "Prénom"', required), minLength: helpers.withMessage(({$params}) => `❌ Votre prénom doit contenir ${$params.min} caractères minimum`,minLength(2)) },
       lastName: { required: helpers.withMessage('❌ Veuillez compléter le champ "Nom', required), minLength: helpers.withMessage(({$params}) => `❌ Votre nom doit contenir ${$params.min} caractères minimum`,minLength(2)) },
-      contact: {
-        email: { required: helpers.withMessage('❌ Veuillez renseigner votre email', required), email: helpers.withMessage('❌ Adresse email non valide', email) }, // Matches state.contact.email
-      },
-      message: { required: helpers.withMessage('❌ Veuillez rédiger votre texte', required) }
+      email: { required: helpers.withMessage('❌ Veuillez renseigner votre email', required), email: helpers.withMessage('❌ Adresse email non valide', email) },
+      message: { required: helpers.withMessage('❌ Veuillez rédiger votre texte', required) },
+      rgpd: { sameAs: helpers.withMessage('❌ Veuillez cocher la case des RGPD', sameAs(true)) }
     }
 
     const submitForm = async () => {
         const result = await v$.value.$validate();
-        if(result){
+        if((result) && (callbackVerify)) {
             emailjs.sendForm('service_zwezsm9', 'template_lpeadhv', form.value, 'Ss8zo6HnbADbIn_47')
-        .then(() => {
-          document.getElementById("success").innerHTML = "<p>&#9989; Votre message a été envoyé avec succès !<br/>Vous serez recontacté(e) prochainement par email</p>";
-          inputFieldReset.value = " ";
-        }, (error) => {
-          alert('Message non en', error);
-        });
+            .then(() => {
+                setTimeout(function () {
+                    window.location.reload(true);
+
+                }, 2000);
+                document.getElementById("success").innerHTML = "<p>&#9989; Votre message a été envoyé avec succès !<br/>Vous serez recontacté(e) prochainement par email</p>";
+            });
         } else{
             console.log('none');
         }
@@ -121,7 +148,7 @@ export default {
 
     const v$ = useVuelidate(rules, formData);
 
-    return { formData, v$, submitForm, form, inputFieldReset}
+    return { formData, v$, submitForm, form, callbackExpired, callbackFail, callbackVerify, actionReset}
   }
 }
 
@@ -187,10 +214,11 @@ export default {
                     resize: none;
                 }
 
-                input[type="submit"]{
+                input[type="submit"],input[type="reset"]{
                     font-size: 1rem;
                     color: $primary-color;
                     background: $secondary-color;
+                    margin: 1rem 1rem;
                     padding: 0.5rem 1rem;
                     border-radius: $radius-12;
                     border: 1px solid $secondary-color;
@@ -217,6 +245,10 @@ export default {
                             accent-color: #e2003f;
                         }
                     }
+                }
+                #recaptcha{
+                    display: flex;
+                    justify-content: center;
                 }
             }
         }
