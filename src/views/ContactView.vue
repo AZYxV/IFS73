@@ -8,7 +8,7 @@
             <div class="section-form__particles">
                 <img src="@/assets/contact/particles.png" alt="#">
             </div>
-            <form  ref="form" @submit.prevent="submitForm" class="section-form__form">
+            <form  ref="form" @submit.prevent="submit" class="section-form__form">
                 <div class="section-form__form__div">
                     <div id="success"></div>
                     <div class="section-form__form__div__name">
@@ -26,7 +26,8 @@
                         <label for="terms">J’autorise ce site à conserver mes données transmises via ce formulaire</label>
                     </div>
                     <div id="recaptcha">
-                        <vue-recaptcha theme="light" size="normal" :tabindex="0" @widgetId="recaptchaWidget = $event" @verify="callbackVerify($event)" @expired="callbackExpired()" @fail="callbackFail()"/>
+                        <vue-recaptcha @verify="onVerify($event)" @expired="onExpire()" @error="onError()" sitekey="6LdG8bYgAAAAALNe96c6g7wU-H7JhTs47OIa26sL" size="normal">
+                        </vue-recaptcha>
                     </div>
                     <div>
                         <input type="submit" name="send" id="submit" value="Envoyer">
@@ -81,37 +82,23 @@
 </template>
 
 <script>
-
-import { reactive } from 'vue' // "from '@vue/composition-api'" if you are using Vue 2.x
+import { reactive } from 'vue'
 import useVuelidate from '@vuelidate/core'
 import { required, email, helpers, minLength, sameAs } from '@vuelidate/validators'
+import { VueRecaptcha } from 'vue-recaptcha'
 import emailjs from 'emailjs-com'
-import { VueRecaptcha, useRecaptcha } from "vue3-recaptcha-v2"
 import {ref} from 'vue'
 
 export default {
   name: "recaptchaTest",
   components: { VueRecaptcha },
-  setup () {
+  methods: {
 
-    const { resetRecaptcha } = useRecaptcha();
-      const recaptchaWidget = ref(null);
+    // Method permettant la verification avec vuelidate, l'envoi du mail avec emailjs et le reCaptcha
+    // google de la librairy vue-recaptcha
 
-      const callbackVerify = (response) => {
-        console.log(response);
-      };
-      const callbackExpired = () => {
-        console.log("expired!");
-      };
-      const callbackFail = () => {
-        console.log("fail");
-      };
-      // Reset Recaptcha action
-      const actionReset = () => {
-        resetRecaptcha(recaptchaWidget.value);
-      };
-
-    const form = ref(null);
+    async submit() {
+        const form = ref(null);
 
     const formData = reactive({
       firstName: '',
@@ -129,9 +116,59 @@ export default {
       rgpd: { sameAs: helpers.withMessage('❌ Veuillez cocher la case des RGPD', sameAs(true)) }
     }
 
+    const v$ = useVuelidate(rules, formData)
+        const result = await this.v$.$validate();
+        if ((result) && (this.recaptcha)) {
+            console.log("yes vuelidate")
+            document.getElementById("submit").disabled = true;
+            emailjs.sendForm('service_zwezsm9', 'template_lpeadhv', this.$refs.form, 'Ss8zo6HnbADbIn_47')
+            .then(() => {
+                console.log("yes")
+                document.getElementById("success").innerHTML = "<p>&#9989; Votre message a été envoyé avec succès !<br/>Vous serez recontacté(e) prochainement par email</p>"
+                setTimeout(function () {
+                    window.location.reload(true);
+                }, 2000);
+            });
+        }else{
+            console.log("error");
+        }
+    return (formData, form, rules, v$);
+    },
+
+    // fait partie de la library vue-captcha, permet d recevoir une réponse 
+    // lorsque le reCaptcha est rempli
+
+    onVerify(response) {
+      this.recaptcha = response;
+      console.log('Verify: ' + this.recaptcha);
+    }
+  },
+
+    // Le setup est toujours présent, la method submit() ne fonctionne pas sans, je n'ai pas encore trouvé pourquoi
+
+  setup () {
+
+    const form = ref(null);
+
+    const formData = reactive({
+      firstName: '',
+      lastName: '',
+      email: '',
+      message: '',
+      rgpd: ''
+    })
+
+    const rules = {
+      firstName: { required: helpers.withMessage('❌ Veuillez compléter le champ "Prénom"', required), minLength: helpers.withMessage(({$params}) => `❌ Votre prénom doit contenir ${$params.min} caractères minimum`,minLength(2)) },
+      lastName: { required: helpers.withMessage('❌ Veuillez compléter le champ "Nom', required), minLength: helpers.withMessage(({$params}) => `❌ Votre nom doit contenir ${$params.min} caractères minimum`,minLength(2)) },
+      email: { required: helpers.withMessage('❌ Veuillez renseigner votre email', required), email: helpers.withMessage('❌ Adresse email non valide', email) },
+      message: { required: helpers.withMessage('❌ Veuillez rédiger votre message', required) },
+      rgpd: { sameAs: helpers.withMessage('❌ Veuillez cocher la case des RGPD', sameAs(true)) }
+    }
+
     const submitForm = async () => {
         const result = await v$.value.$validate();
-        if((result) && (callbackVerify)) {
+        if((result) && (this.formData.recaptcha = true)) {
             emailjs.sendForm('service_zwezsm9', 'template_lpeadhv', form.value, 'Ss8zo6HnbADbIn_47')
             .then(() => {
                 setTimeout(function () {
@@ -148,7 +185,7 @@ export default {
 
     const v$ = useVuelidate(rules, formData);
 
-    return { formData, v$, submitForm, form, callbackExpired, callbackFail, callbackVerify, actionReset}
+    return { formData, v$, submitForm, form}
   }
 }
 
