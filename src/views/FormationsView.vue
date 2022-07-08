@@ -16,15 +16,15 @@ export default defineComponent({
         <section class="section-microsoft">
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">
-                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>
+                <p>Word</p>
             </div>
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
-                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>               
+                <p>Excel</p>
             </div>
             <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
-                <a target="_blank" href="https://unsplash.com/photos/p5lS8DT3tSQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2NDI4NTk5&force=true" download>Découvrir</a>
+                <p>Powerpoint</p>
             </div>
         </section>
         
@@ -98,7 +98,14 @@ export default defineComponent({
         </section>
         <section class="section-tarif">
             <h2>Catalogue de Formations 2022</h2>
-            <img src="@/assets/formations/tarifs.png" alt="">
+            <img src="@/assets/formations/tarifs.png" alt="Tableau">
+            <a href="../assets/formations/CATALOGUE DE FORMATIONS 2022.pdf" download>Télécharger Le Catalogue</a>
+            <h2>Télécharger les programmmes</h2>
+            <div class="section-tarif__div-lien">
+                <a class="lien" href="../assets/formations/Programme_de_formation_14H_Initiation_Word.pdf" download>Initiation Word</a>
+                <a class="lien" href="../assets/formations/Programme_de_formation_21H_Initiation_Excel.pdf" download>Initiation Excel</a>
+                <a class="lien" href="../assets/formations/Programme_de_formation_21H_Perfectionnement_Excel.pdf" download>Perfectionnement Excel</a>
+            </div>
         </section>
     </main>
 </template>
@@ -125,12 +132,13 @@ h1{
         gap: 12px;
     }
 
-    &__item img{
+    img{
         width: 120px;
         height: auto;
     }
 
-    &__item a{
+    p{  
+        width: 150px;
         color: white;
         border-radius: $radius-12;
         padding: .5rem 1rem;
@@ -138,12 +146,6 @@ h1{
         border: 1px solid $secondary-color;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
-    
-        &:hover{
-            background: $primary-color;
-            color: $secondary-color;
-            cursor: pointer;
-        }
     }
 }   
 
@@ -178,10 +180,9 @@ h1{
                 justify-content: center;
                 flex-direction: column;
                 align-items: center;
-                gap: 1rem;
                 padding: 1rem;
                 width: 220px;
-                height: 300px;
+                height: 220px;
                 background: $primary-color;
                 border-radius: $radius-24;
                 box-shadow: $box-shadow-bottom;
@@ -260,12 +261,37 @@ h1{
     gap: $gap-4;
     
     img{
+        display: none;
         width: clamp(5rem, 100%, 100%);
         height: auto;
     }
 
     h2{
         font-size: 1.5rem;
+    }
+
+    a{  
+        text-decoration: none;
+        color: white;
+        border-radius: $radius-12;
+        padding: .5rem 1rem;
+        background: $secondary-color;
+        border: 1px solid $secondary-color;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        width: 260px;
+    }
+    
+    a:hover{
+            background: $primary-color;
+            color: $secondary-color;
+        }
+
+    &__div-lien{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
@@ -291,6 +317,10 @@ h1{
 
         h2{
             font-size: 2rem;
+        }
+
+        img{
+            display: block;
         }
     }
 
