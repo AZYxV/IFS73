@@ -63,9 +63,9 @@ export default defineComponent({
                     <p>Note<br>sur 100</p>
                 </div>
                 <div class="section-satisfaction__div-double__div-bloc">
-                    <h3>100% des stagiaires</h3>
+                    <h3>Chez IFS</h3>
                     <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
-                    <p>Recommandent<br>la formation</p>
+                    <p>Recommandent<br>la formation(%)</p>
                 </div>
             </div>
         </section>
