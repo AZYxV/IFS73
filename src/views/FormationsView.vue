@@ -35,10 +35,10 @@ export default defineComponent({
                     La maitrise de la bureautique renforce votre productivité et votre efficacité professionnelle.
                     Et la formation professionnelle continue vous permet de développer ces compétences, profitez-en !
                     
-                    IFS vous propose des formations aux logiciels Microsoft Word, Microsoft Excel, Microsoft Powerpoint,
+                    IFS vous propose des formations aux logiciels Microsoft Word, Microsoft Excel et Microsoft Powerpoint,
                     entièrement sur mesure, qui s'adaptent complètement à vos besoins spécifiques.
                     
-                    Les sessions de formation sont organisées en distanciel ou à Aix-les-Bains ou Chambéry,
+                    Les sessions de formation sont organisées en présentiel à Chambéry ou en distanciel à la demande,
                     individuellement ou en groupe.
                 </p>
             </div>
@@ -83,7 +83,7 @@ export default defineComponent({
                 <p>
                     Que vous soyez salarié, entrepreneur ou demandeur d’emploi,
                     toute personne souhaitant approfondir ses connaissances
-                    ou au contraire souhaitant découvrir Word, Excel, Powerpoint,
+                    ou au contraire souhaitant découvrir Word, Excel et Powerpoint,
                     dans un contexte professionnel ou personnel. 
                 </p>
             </div>

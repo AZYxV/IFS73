@@ -69,7 +69,7 @@
                 </div>
                 <div class="section-contact__div__infos">
                     <img src="@/assets/contact/linkedin.svg" alt="Icon Réseau Social Linkedin">
-                    <p>Amandine LORENZO</p>
+                    <a href="https://fr.linkedin.com/in/amandine-lorenzo-597738143?trk=people-guest_people_search-card&original_referer=http%3A%2F%2Flocalhost%3A8080%2F">Amandine Lorenzo</a>
                 </div>
                 <div class="section-contact__div__infos">
                     <img src="@/assets/contact/phone.svg" alt="Icon Telephone">
@@ -264,11 +264,13 @@ export default {
         justify-content: center;
         align-items: center;
         gap: 4rem;
+        
         iframe{
             border-radius: $radius-24;
             width: 100%;
             height: 15rem;
         }
+        
         &__div{
             display: flex;
             flex-direction: column;
@@ -276,16 +278,24 @@ export default {
             border-radius: $radius-24;
             padding: 2rem 1rem;
             gap: 1rem;
+            
             &__infos{
                 display: flex;
                 align-items: center;
                 gap: 1rem;
+                
                 img{
                     width: clamp(3rem, 10%, 100%);
                     height: auto;
                 }
+                
                 p{
                     text-align: left;
+                }
+
+                a{
+                    text-decoration: none;
+                    color: black;
                 }
             }
         }
