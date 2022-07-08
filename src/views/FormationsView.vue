@@ -1,3 +1,15 @@
+<script>
+import { defineComponent } from 'vue';
+import Vue3autocounter from 'vue3-autocounter';
+
+export default defineComponent({
+  name: 'vueGou',
+  components: {
+    'vue3-autocounter': Vue3autocounter
+  }
+});   
+</script>
+
 <template>
     <main>
         <h1>Decouvrez nos formations</h1>
@@ -31,7 +43,32 @@
                 </p>
             </div>
         </section>
-        
+        <section class="section-satisfaction">
+            <div class="section-satisfaction__div-double">
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Stagiaires formés</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Depuis<br>L'année 2022</p>
+                </div>
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Taux d'assuidité</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Note<br>sur 100</p>
+                </div>
+            </div>
+            <div class="section-satisfaction__div-double">
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Satisfaction globale</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Note<br>sur 100</p>
+                </div>
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>100% des stagiaires</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Recommandent<br>la formation</p>
+                </div>
+            </div>
+        </section>
         <section class="section-contact">
             <img src="@/assets/formations/femme_formation.png" alt="illutration femme formation">
             <div class="section-contact__div">
@@ -65,6 +102,8 @@
         </section>
     </main>
 </template>
+
+
 
 <style lang="scss" scoped>
 
@@ -120,6 +159,44 @@ h1{
         gap: 12px;
     }
 }
+
+.section-satisfaction{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap:2rem;
+
+        &__div-double{
+             display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+
+            &__div-bloc{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+                width: 220px;
+                height: 300px;
+                background: $primary-color;
+                border-radius: $radius-24;
+                box-shadow: $box-shadow-bottom;
+            
+                p{
+                    font-family: 'Righteous', cursive;
+                }
+
+                .nombre{
+                    font-size: 4rem;
+                   
+                }
+            }
+        }
+    }
 
 .section-contact{
     display: flex;
@@ -212,10 +289,19 @@ h1{
     }
     .section-tarif{
 
-    h2{
-        font-size: 2rem;
+        h2{
+            font-size: 2rem;
+        }
     }
-}
+
+    .section-satisfaction{
+        flex-direction: row;
+        gap:6rem;
+
+        &__div-double{
+            gap: 6rem;
+        }
+    }
 
     .section-contact{
         img{
@@ -239,6 +325,14 @@ h1{
     .section-presentation,.section-blocs{
         padding: 0 5%;
     }
+
+    .section-satisfaction{
+            gap:2rem;
+            &__div-double{
+                flex-direction: row;
+                gap:2rem; 
+            }
+        }
 
     .section-tarif{
         

@@ -68,32 +68,6 @@
                 <img src="@/assets/accueil/illustationtrois.png" alt="Illustration homme présentation">
             </div>
         </section>
-        <section class="section-satisfaction">
-            <div class="section-satisfaction__div-double">
-                <div class="section-satisfaction__div-double__div-bloc">
-                    <h3>Stagiaires formés</h3>
-                    <p class="nombre">0</p>
-                    <p>Depuis<br>L'année 2022</p>
-                </div>
-                <div class="section-satisfaction__div-double__div-bloc">
-                    <h3>Taux d'assuidité</h3>
-                    <p class="nombre">0</p>
-                    <p>Note<br>sur 100</p>
-                </div>
-            </div>
-            <div class="section-satisfaction__div-double">
-                <div class="section-satisfaction__div-double__div-bloc">
-                    <h3>Satisfaction globale</h3>
-                    <p class="nombre">0</p>
-                    <p>Note<br>sur 100</p>
-                </div>
-                <div class="section-satisfaction__div-double__div-bloc">
-                    <h3>100% des stagiaires</h3>
-                    <p class="nombre">0</p>
-                    <p>Recommandent<br>la formation</p>
-                </div>
-            </div>
-        </section>
         <h2 class="h2-confiance">Ils nous font confiance</h2>
         <section class="carousel">
             <div class="carousel__slider">
@@ -363,44 +337,6 @@ main{
         }
     }
 
-    .section-satisfaction{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        gap:2rem;
-
-        &__div-double{
-             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-           
-            gap: 2rem;
-
-            &__div-bloc{
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                gap: 2rem;
-                padding: 0 3rem;
-            
-                p{
-                    font-family: 'Righteous', cursive;
-                }
-
-                .nombre{
-                    font-size: 4rem;
-                    background: $primary-color;
-                    padding: 2rem 3rem;
-                    border-radius: $radius-24;
-                    box-shadow: $box-shadow-bottom;
-                }
-            }
-        }
-    }
-
-
     .h2-confiance{
         font-size: 1.5rem;
     }
@@ -483,10 +419,6 @@ $animationSpeed: 40s;
     }
 
     @media (min-width: 768px) {
-
-        .section-satisfaction{
-            flex-direction: row;
-        }
         .slide{
             &__slider{
                 height: 45vh;
@@ -610,12 +542,6 @@ $animationSpeed: 40s;
             padding: 0 5%;
             &__bloc{
             gap: 8rem;
-            }
-        }
-
-        .section-satisfaction{
-            &__div-double{
-                flex-direction: row; 
             }
         }
 
