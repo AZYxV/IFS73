@@ -121,7 +121,7 @@ export default {
         if ((result) && (this.recaptcha)) {
             console.log("yes vuelidate")
             document.getElementById("submit").disabled = true;
-            emailjs.sendForm('service_zwezsm9', 'template_lpeadhv', this.$refs.form, 'Ss8zo6HnbADbIn_47')
+            emailjs.sendForm('service_ls7v2kh', 'template_lpeadhv', this.$refs.form, 'Ss8zo6HnbADbIn_47')
             .then(() => {
                 console.log("yes")
                 document.getElementById("success").innerHTML = "<p>&#9989; Votre message a été envoyé avec succès !<br/>Vous serez recontacté(e) prochainement par email</p>"
