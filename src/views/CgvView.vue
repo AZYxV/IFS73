@@ -2,7 +2,6 @@
     <main>
         <section class="section-cgv">
             <h1>CONDITIONS GENERALES DE VENTE POUR<br>LA FORMATION PROFESSIONNELLE CONTINUE</h1>
-            <Roller char-set="number" value="279" mode="short" :duration="1000"></Roller>
             <div class="section-cgv__div-bloc">
                 <h2>Désignation</h2>
                 <p>
@@ -310,7 +309,6 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        align-items: center;
         gap: $gap-4;
         background: $primary-color;
         padding: 4rem 1rem;
@@ -321,7 +319,6 @@
             display: flex;
             justify-content: center;
             flex-direction: column;
-            align-items: center;
             gap: 2rem;
         }
     }
