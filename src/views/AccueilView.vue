@@ -1,7 +1,7 @@
 
 <template> 
     <main>
-        <agile :mobileFirst="true" :navButtons="false" :dots="false" :autoplay="true" :speed="1000">
+        <agile :mobileFirst="true" :navButtons="false" :dots="false" :autoplay="true" :speed="3000">
             <div class="slide">
                 <div class=" slide__one slide__slider">
                     <h2>Bienvenue sur IFS73</h2>
@@ -364,9 +364,9 @@ width: 100%;
     font-size: 1.5rem;
 }
 
-@mixin white-gradient {
-background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-}
+// @mixin white-gradient {
+// background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+// }
 
 $animationSpeed: 40s;
 
@@ -388,15 +388,15 @@ $animationSpeed: 40s;
 	position: relative;
 	width: 90vw;
 	
-	&::before,
-	&::after {
-        @include white-gradient;
-		content: "";
-		height: 150px;
-		position: absolute;
-		width: 50px;
-		z-index: 2;
-	}
+	// &::before,
+	// &::after {
+    //     @include white-gradient;
+	// 	content: "";
+	// 	height: 150px;
+	// 	position: absolute;
+	// 	width: 50px;
+	// 	z-index: 2;
+	// }
 	
 	&::after {
 		right: 0;
