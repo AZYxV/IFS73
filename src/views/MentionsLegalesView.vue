@@ -3,6 +3,14 @@
        <section class="section-ml">
             <h1>MENTIONS LEGALES</h1>
             <div class="section-ml__div-bloc">
+                <h2>Réalisation du site</h2>
+                <p>
+                    Made with ❤️ by :<br>
+                    Nathan Sichouc : nschpro@gmail.com,<br>
+                    Raphaël Hernandez : raphaelhrndpro@gmail.com
+                </p>
+            </div>
+            <div class="section-ml__div-bloc">
                 <h2>INFORMATIQUE FORMATION SECURITE est dirigée par Amandine LORENZO</h2>
                 <p>
                     Siret : 894 036 516 00017<br>
@@ -53,41 +61,41 @@
 <style lang="scss" scoped>
  @import "@/scss/_variables.scss";
 
-    .section-ml{
+.section-ml{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: $gap-4;
+    background: $primary-color;
+    padding: 4rem 1rem;
+    border-radius: $radius-24;
+    box-shadow: $box-shadow-bottom;
+
+    &__div-bloc{
         display: flex;
         justify-content: center;
         flex-direction: column;
-        gap: $gap-4;
-        background: $primary-color;
-        padding: 4rem 1rem;
-        border-radius: $radius-24;
-        box-shadow: $box-shadow-bottom;
-
-        &__div-bloc{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            gap: 2rem;
-        }
+        gap: 2rem;
     }
+}
 
-    h1{
-        font-size: 1.5rem;
-    }
+h1{
+    font-size: 1.5rem;
+}
 
-    p{
-        text-align: justify;
-    }
+p{
+    text-align: justify;
+}
 
-    .router{
-        color: $secondary-color;
-    }
+.router{
+    color: $secondary-color;
+}
     
-
 @media (min-width:768px){
     h1{
         font-size: 2rem;
     }
+    
     .section-ml{
         margin: 0 5%;
         padding: 4rem 5%;
@@ -95,10 +103,10 @@
 }
 
 @media (min-width:1024px){
+    
     .section-ml{
         margin: 0 10%;
         padding: 4rem 10%;
-    }
-    
+    }  
 }
 </style>
