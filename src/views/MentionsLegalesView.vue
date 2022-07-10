@@ -4,7 +4,7 @@
             <h1>MENTIONS LEGALES</h1>
             <div class="section-ml__div-bloc">
                 <h2>Réalisation du site</h2>
-                <p>
+                <p class="p-made">
                     Made with ❤️ by :<br>
                     Nathan Sichouc : nschpro@gmail.com,<br>
                     Raphaël Hernandez : raphaelhrndpro@gmail.com
@@ -85,6 +85,10 @@ h1{
 
 p{
     text-align: justify;
+}
+
+.p-made{
+    text-align: left;
 }
 
 .router{

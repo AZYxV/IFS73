@@ -99,18 +99,18 @@ export default defineComponent({
         <section class="section-tarif">
             <h2>Catalogue de Formations 2022</h2>
             <img class="img-tableau" src="@/assets/formations/tarifs.png" alt="Tableau">
-            <a href="../assets/formations/CATALOGUE DE FORMATIONS 2022.pdf" download>Télécharger Le Catalogue</a>
+            <a href="https://drive.google.com/file/d/1HreTXIHlu_Qp1ZrNLvWNI7hHYsrLszH4/view?usp=sharing" download>Télécharger Le Catalogue</a>
             <h2>Télécharger les programmmes</h2>
             <div class="section-tarif__div-bloc">
                 <div class="section-tarif__div-bloc__div-microsoft">
                     <img class="img-microsoft" src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">
-                    <a class="lien-cours" href="../assets/formations/Programme_de_formation_14H_Initiation_Word.pdf" download>Initiation Word</a>
+                    <a class="lien-cours" href="https://drive.google.com/file/d/161zMeld9Jse26dqpEXO3nkg3BYBXNr0E/view?usp=sharing" download>Initiation Word</a>
                     <a class="lien-cours" href="">Perfectionnement Word</a>
                 </div>
                 <div class="section-tarif__div-bloc__div-microsoft">
                     <img class="img-microsoft" src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
-                    <a class="lien-cours" href="../assets/formations/Programme_de_formation_21H_Initiation_Excel.pdf" download>Initiation Excel</a>
-                    <a class="lien-cours" href="../assets/formations/Programme_de_formation_21H_Perfectionnement_Excel.pdf" download>Perfectionnement Excel</a>
+                    <a class="lien-cours" href="https://drive.google.com/file/d/1Sa3YkfRwDP6qJ3I6RYmq-hDmvcPaOHB2/view?usp=sharing" download>Initiation Excel</a>
+                    <a class="lien-cours" href="https://drive.google.com/file/d/1pEYiMUU_5jcQTf4IhSs-026nNOwP4FRS/view?usp=sharing" download>Perfectionnement Excel</a>
                     <a class="lien-cours" href="">Tableaux Croisés</a>
                 </div>
                 <div class="section-tarif__div-bloc__div-microsoft">
