@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 import Vue3autocounter from 'vue3-autocounter';
 
 export default defineComponent({
-  name: 'vueGou',
+  name: 'CompteurTaux',
   components: {
     'vue3-autocounter': Vue3autocounter
   }
@@ -98,14 +98,27 @@ export default defineComponent({
         </section>
         <section class="section-tarif">
             <h2>Catalogue de Formations 2022</h2>
-            <img src="@/assets/formations/tarifs.png" alt="Tableau">
+            <img class="img-tableau" src="@/assets/formations/tarifs.png" alt="Tableau">
             <a href="../assets/formations/CATALOGUE DE FORMATIONS 2022.pdf" download>Télécharger Le Catalogue</a>
             <h2>Télécharger les programmmes</h2>
-            <div class="section-tarif__div-lien">
-                <a class="lien" href="../assets/formations/Programme_de_formation_14H_Initiation_Word.pdf" download>Initiation Word</a>
-                <a class="lien" href="../assets/formations/Programme_de_formation_21H_Initiation_Excel.pdf" download>Initiation Excel</a>
-                <a class="lien" href="../assets/formations/Programme_de_formation_21H_Perfectionnement_Excel.pdf" download>Perfectionnement Excel</a>
+            <div class="section-tarif__div-bloc">
+                <div class="section-tarif__div-bloc__div-microsoft">
+                    <img class="img-microsoft" src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">
+                    <a class="lien-cours" href="../assets/formations/Programme_de_formation_14H_Initiation_Word.pdf" download>Initiation Word</a>
+                    <a class="lien-cours" href="">Perfectionnement Word</a>
+                </div>
+                <div class="section-tarif__div-bloc__div-microsoft">
+                    <img class="img-microsoft" src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
+                    <a class="lien-cours" href="../assets/formations/Programme_de_formation_21H_Initiation_Excel.pdf" download>Initiation Excel</a>
+                    <a class="lien-cours" href="../assets/formations/Programme_de_formation_21H_Perfectionnement_Excel.pdf" download>Perfectionnement Excel</a>
+                    <a class="lien-cours" href="">Tableaux Croisés</a>
+                </div>
+                <div class="section-tarif__div-bloc__div-microsoft">
+                    <img class="img-microsoft" src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
+                    <a class="lien-cours" href="">Initiation Powerpoint</a>
+                </div>
             </div>
+            <a class="dernier-lien" href="">Bureautique Excel/Word/Powerpoint</a>
         </section>
     </main>
 </template>
@@ -219,6 +232,7 @@ h1{
       h2{
         font-size: 1.5rem;
       }
+      
       .router{
         color: $primary-color;
         text-decoration: none;
@@ -260,7 +274,7 @@ h1{
     align-items: center;
     gap: $gap-4;
     
-    img{
+    .img-tableau{
         display: none;
         width: clamp(5rem, 100%, 100%);
         height: auto;
@@ -279,7 +293,6 @@ h1{
         border: 1px solid $secondary-color;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
-        width: 260px;
     }
     
     a:hover{
@@ -287,13 +300,34 @@ h1{
             color: $secondary-color;
         }
 
-    &__div-lien{
+    &__div-bloc{
         display: flex;
         justify-content: center;
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
+        
+        
+        &__div-microsoft{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            .img-microsoft{
+                width: 120px;
+            }
+
+            .lien-cours{
+                width: 230px;
+            }
+        }
     }
 }
+
+.dernier-lien{
+    width: 230px;
+}
+
 
 @media (min-width:768px){
     h1{
@@ -319,11 +353,19 @@ h1{
             font-size: 2rem;
         }
 
-        img{
+        .img-tableau{
             display: block;
+        }
+
+        &__div-bloc{
+            flex-direction: row;
+            gap: 2rem;
         }
     }
 
+    .dernier-lien{
+    width: 760px;
+}
     .section-satisfaction{
         flex-direction: row;
         gap:6rem;
@@ -349,15 +391,29 @@ h1{
     .section-blocs{
         flex-direction: row;
     }
+    .section-tarif{
+        
+        &__div-bloc{  
+            
+            &__div-microsoft{
+
+                .img-microsoft{
+                    width: 150px;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width:1024px){
+
     .section-presentation,.section-blocs{
         padding: 0 5%;
     }
 
     .section-satisfaction{
             gap:2rem;
+            
             &__div-double{
                 flex-direction: row;
                 gap:2rem; 
@@ -366,19 +422,20 @@ h1{
 
     .section-tarif{
         
-        img{
+        .img-tableau{
             width: clamp(5rem, 90%, 100%);
-            height: auto;
         }
     }
 }
 
 @media (min-width:1440px){
+    
     .section-presentation,.section-blocs{
         padding: 0 10%;
     }
 
     .section-contact{
+        
         img{
              width: clamp(5rem, 25%, 100%);
         }
@@ -386,9 +443,8 @@ h1{
 
     .section-tarif{
         
-        img{
+        .img-tableau{
             width: clamp(5rem, 80%, 100%);
-            height: auto;
         }
     }
 }
