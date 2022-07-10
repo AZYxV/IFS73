@@ -1,3 +1,15 @@
+<script>
+import { defineComponent } from 'vue';
+import Vue3autocounter from 'vue3-autocounter';
+
+export default defineComponent({
+  name: 'CompteurTaux',
+  components: {
+    'vue3-autocounter': Vue3autocounter
+  }
+});   
+</script>
+
 <template>
     <main>
         <h1>Decouvrez nos formations</h1>
@@ -7,14 +19,13 @@
                 <p>Word</p>
             </div>
             <div class="section-microsoft__item">
+                <img src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
+                <p>Excel</p>
+            </div>
+            <div class="section-microsoft__item">
                 <img src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
                 <p>Powerpoint</p>
             </div>
-            <div class="section-microsoft__item">
-                <img src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
-                <p>Excel</p>                         
-            </div>
-            
         </section>
         
         <section class="section-presentation">
@@ -24,15 +35,40 @@
                     La maitrise de la bureautique renforce votre productivité et votre efficacité professionnelle.
                     Et la formation professionnelle continue vous permet de développer ces compétences, profitez-en !
                     
-                    IFS vous propose des formations aux logiciels Microsoft Word, Microsoft Excel, Microsoft Powerpoint,
+                    IFS vous propose des formations aux logiciels Microsoft Word, Microsoft Excel et Microsoft Powerpoint,
                     entièrement sur mesure, qui s'adaptent complètement à vos besoins spécifiques.
                     
-                    Les sessions de formation sont organisées en distanciel ou à Aix-les-Bains ou Chambéry,
+                    Les sessions de formation sont organisées en présentiel à Chambéry ou en distanciel à la demande,
                     individuellement ou en groupe.
                 </p>
             </div>
         </section>
-        
+        <section class="section-satisfaction">
+            <div class="section-satisfaction__div-double">
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Stagiaires formés</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Depuis<br>L'année 2022</p>
+                </div>
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Taux d'assuidité</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Note<br>sur 100</p>
+                </div>
+            </div>
+            <div class="section-satisfaction__div-double">
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Satisfaction globale</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Note<br>sur 100</p>
+                </div>
+                <div class="section-satisfaction__div-double__div-bloc">
+                    <h3>Chez IFS</h3>
+                    <vue3-autocounter class="nombre" ref='counter' :startAmount='0' :endAmount='100' :duration='3' :autoinit='true'/>
+                    <p>Recommandent<br>la formation(%)</p>
+                </div>
+            </div>
+        </section>
         <section class="section-contact">
             <img src="@/assets/formations/femme_formation.png" alt="illutration femme formation">
             <div class="section-contact__div">
@@ -47,7 +83,7 @@
                 <p>
                     Que vous soyez salarié, entrepreneur ou demandeur d’emploi,
                     toute personne souhaitant approfondir ses connaissances
-                    ou au contraire souhaitant découvrir Word, Excel, Powerpoint,
+                    ou au contraire souhaitant découvrir Word, Excel et Powerpoint,
                     dans un contexte professionnel ou personnel. 
                 </p>
             </div>
@@ -62,17 +98,32 @@
         </section>
         <section class="section-tarif">
             <h2>Catalogue de Formations 2022</h2>
-            <a class="pdf" target="_blank" href="https://drive.google.com/file/d/12jrPa6-Y1Yqq7Hf34GUMSnfb-nVCvGJL/view?usp=sharing" download>Découvrir le Catalogue</a>
-            <img src="@/assets/formations/tarifs.png" alt="Tableau des tarifs de formations bureautiques">
-            <h2>Formations</h2>
-            <div class="section-tarif__div-lien">
-                <a target="_blank" href="@/assets/formations/Programme_de_formation_14H_Initiation_Word.pdf" download>Initiation Word</a>
-                <a target="_blank" href="@/assets/formations/Programme_de_formation_21H_Initiation_Excel.pdf" download>Initiation Excel</a>
-                <a target="_blank" href="@/assets/formations/Programme_de_formation_21H_Perfectionnement_Excel.pdf" download>Perfectionnement Excel</a>
+            <img class="img-tableau" src="@/assets/formations/tarifs.png" alt="Tableau">
+            <a href="../assets/formations/CATALOGUE DE FORMATIONS 2022.pdf" download>Télécharger Le Catalogue</a>
+            <h2>Télécharger les programmmes</h2>
+            <div class="section-tarif__div-bloc">
+                <div class="section-tarif__div-bloc__div-microsoft">
+                    <img class="img-microsoft" src="@/assets/formations/microsoft-word-2019.svg" alt="logo microsoft word">
+                    <a class="lien-cours" href="../assets/formations/Programme_de_formation_14H_Initiation_Word.pdf" download>Initiation Word</a>
+                    <a class="lien-cours" href="">Perfectionnement Word</a>
+                </div>
+                <div class="section-tarif__div-bloc__div-microsoft">
+                    <img class="img-microsoft" src="@/assets/formations/microsoft-excel-2019.svg" alt="logo microsoft excel">
+                    <a class="lien-cours" href="../assets/formations/Programme_de_formation_21H_Initiation_Excel.pdf" download>Initiation Excel</a>
+                    <a class="lien-cours" href="../assets/formations/Programme_de_formation_21H_Perfectionnement_Excel.pdf" download>Perfectionnement Excel</a>
+                    <a class="lien-cours" href="">Tableaux Croisés</a>
+                </div>
+                <div class="section-tarif__div-bloc__div-microsoft">
+                    <img class="img-microsoft" src="@/assets/formations/microsoft-powerpoint-2019.svg" alt="logo microsoft powerpoint">
+                    <a class="lien-cours" href="">Initiation Powerpoint</a>
+                </div>
             </div>
+            <a class="dernier-lien" href="">Bureautique Excel/Word/Powerpoint</a>
         </section>
     </main>
 </template>
+
+
 
 <style lang="scss" scoped>
 
@@ -91,21 +142,19 @@ h1{
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
         gap: 12px;
     }
 
-    &__item img{
+    img{
         width: 120px;
         height: auto;
     }
 
-    &__item p{
+    p{  
+        width: 150px;
         color: white;
         border-radius: $radius-12;
         padding: .5rem 1rem;
-        width: 150px;
-        height: auto;
         background: $secondary-color;
         border: 1px solid $secondary-color;
         text-decoration: none;
@@ -125,6 +174,43 @@ h1{
         gap: 12px;
     }
 }
+
+.section-satisfaction{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap:2rem;
+
+        &__div-double{
+             display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+
+            &__div-bloc{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+                width: 220px;
+                height: 220px;
+                background: $primary-color;
+                border-radius: $radius-24;
+                box-shadow: $box-shadow-bottom;
+            
+                p{
+                    font-family: 'Righteous', cursive;
+                }
+
+                .nombre{
+                    font-size: 4rem;
+                   
+                }
+            }
+        }
+    }
 
 .section-contact{
     display: flex;
@@ -146,6 +232,7 @@ h1{
       h2{
         font-size: 1.5rem;
       }
+      
       .router{
         color: $primary-color;
         text-decoration: none;
@@ -186,24 +273,8 @@ h1{
     flex-direction: column;
     align-items: center;
     gap: $gap-4;
-
-    a{
-        text-decoration: none;
-        color: white;
-        border-radius: $radius-12;
-        padding: .5rem 1rem;
-        background: $secondary-color;
-        border: 1px solid $secondary-color;
-        text-decoration: none;
-        transition: all 0.2s ease-in-out;
-    }
-
-    a:hover{
-            background: $primary-color;
-            color: $secondary-color;
-        }
     
-    img{
+    .img-tableau{
         display: none;
         width: clamp(5rem, 100%, 100%);
         height: auto;
@@ -213,12 +284,50 @@ h1{
         font-size: 1.5rem;
     }
 
-    &__div-lien{
+    a{  
+        text-decoration: none;
+        color: white;
+        border-radius: $radius-12;
+        padding: .5rem 1rem;
+        background: $secondary-color;
+        border: 1px solid $secondary-color;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    a:hover{
+            background: $primary-color;
+            color: $secondary-color;
+        }
+
+    &__div-bloc{
         display: flex;
+        justify-content: center;
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
+        
+        
+        &__div-microsoft{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            .img-microsoft{
+                width: 120px;
+            }
+
+            .lien-cours{
+                width: 230px;
+            }
+        }
     }
 }
+
+.dernier-lien{
+    width: 230px;
+}
+
 
 @media (min-width:768px){
     h1{
@@ -240,18 +349,31 @@ h1{
     }
     .section-tarif{
 
-    h2{
-        font-size: 2rem;
-    }
-    
-    img{
-        display: block;
+        h2{
+            font-size: 2rem;
+        }
+
+        .img-tableau{
+            display: block;
+        }
+
+        &__div-bloc{
+            flex-direction: row;
+            gap: 2rem;
+        }
     }
 
-    .pdf{
-        display: none;
-    }
+    .dernier-lien{
+    width: 760px;
 }
+    .section-satisfaction{
+        flex-direction: row;
+        gap:6rem;
+
+        &__div-double{
+            gap: 6rem;
+        }
+    }
 
     .section-contact{
         img{
@@ -269,28 +391,51 @@ h1{
     .section-blocs{
         flex-direction: row;
     }
+    .section-tarif{
+        
+        &__div-bloc{  
+            
+            &__div-microsoft{
+
+                .img-microsoft{
+                    width: 150px;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width:1024px){
-    .section-microsoft,.section-presentation,.section-blocs{
+
+    .section-presentation,.section-blocs{
         padding: 0 5%;
     }
 
+    .section-satisfaction{
+            gap:2rem;
+            
+            &__div-double{
+                flex-direction: row;
+                gap:2rem; 
+            }
+        }
+
     .section-tarif{
         
-        img{
+        .img-tableau{
             width: clamp(5rem, 90%, 100%);
-            height: auto;
         }
     }
 }
 
 @media (min-width:1440px){
-    .section-microsoft,.section-presentation,.section-blocs{
+    
+    .section-presentation,.section-blocs{
         padding: 0 10%;
     }
 
     .section-contact{
+        
         img{
              width: clamp(5rem, 25%, 100%);
         }
@@ -298,9 +443,8 @@ h1{
 
     .section-tarif{
         
-        img{
+        .img-tableau{
             width: clamp(5rem, 80%, 100%);
-            height: auto;
         }
     }
 }

@@ -309,7 +309,6 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        align-items: center;
         gap: $gap-4;
         background: $primary-color;
         padding: 4rem 1rem;
@@ -320,7 +319,6 @@
             display: flex;
             justify-content: center;
             flex-direction: column;
-            align-items: center;
             gap: 2rem;
         }
     }

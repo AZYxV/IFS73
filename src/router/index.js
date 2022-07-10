@@ -8,6 +8,10 @@ import CgvView from "@/views/CgvView.vue";
 import NotFoundView from "@/views/NotFoundView.vue"
 
 
+
+  
+
+
 const routes = [
   {
     path: "/",
@@ -49,6 +53,12 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+  scrollBehavior (to, from, savedPosition) {
+    return savedPosition || new Promise((resolve)=>{
+      setTimeout(()=> resolve({ top:0 }))
+    })
+  }
+})
+
 
 export default router;
